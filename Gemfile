@@ -3,7 +3,8 @@
 source "https://rubygems.org"
 
 # gem "jekyll", "~> 4.2"
-gem "github-pages", group: :jekyll_plugins
+# gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 4.3"
 gemspec
 
 group :jekyll_plugins do
