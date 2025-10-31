@@ -1,74 +1,97 @@
-# Site settings
-title: Freelancer
+# Site Settings
+lang: pt
+title: Portifólio By Laura
+tagline: Portifólio By Laura
 email: your-email@domain.com
-# url: https://github.com/jeromelachaud/freelancer-theme
-# url: https://analaurafra.github.io/portifoliobylaura.github.io/
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-#keywords: "your keywords, separated by commas"
-skills: "System Analyst - Backend and Frontend Padayan - Technical Writer "
-meta_author: Martins Ana Laura 
-twitter_username: 
-github_username:  analaurafra
-
-# Google webmaster tools
-google_verify:
-
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:
-
-# Contact form:
-# - static : pass through formspree.io to validate email sending
-# - disqus : replace contact form by disqus thread
-# - comment the line below if you want to stick with the default PHP contact form
-contact: static
-
-# If you use disqus you need disqus shortname
-# https://help.disqus.com/customer/portal/articles/466208
-disqus_shortname: myshortname
-
-# Color settings (hex-codes without the leading hash-tag)
-color:
-  primary: 18bc9c #80B3FF
-  primary-rgb: "24,288,156" #"128,179,255"
-  secondary: 2c3e50 #FD6E8A
-  secondary-dark: 233140 #A2122F
-
-# Footer settings
-footer:
-  copyright: Dr. Henry Jekyll
-  location: Location
-  social: Around the Web
-  credits: Credits
-
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
-social:
-  - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
-  - title: github
-    url: http://github.com/jekyll
-
-# Postal address (add as many lines as necessary)
-address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
-
-# Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
-
-# Build settings
-markdown: kramdown
+description: >
+  The demo site for Bulma Clean Theme, made for Jekyll and GitHub pages websites
+# baseurl: "/bulma-clean-theme"
+url: https://analaurafra.github.io/portifoliobylaura.github.io/
+# baseurl: "/portifoliobylaura.github.io/"
+# url: "https://www.csrhymes.com"
 permalink: pretty
+#favicon: /path/to/favicon.png
+gh_sponsor: analaurafra
+#hide_share_buttons: true
+#theme_color: '#eeeeee'
+#fixed_navbar: top
+#direction: one of <ltr, rtl, auto>, default: ltr
+force_theme: light
 
-#for posts
+paginate: 5
+paginate_path: "/blog/page:num"
+
+# Disqus Comments
+disqus:
+  # Leave shortname blank to disable comments site-wide.
+  # Disable comments for any post by adding `comments: false` to that post's YAML Front Matter.
+  # shortname: my_disqus_shortname
+  shortname: csrhymes
+
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - kramdown-parser-gfm
+  - jekyll-redirect-from
+
+exclude: 
+  - Gemfile
+  - clean-theme.gemspec
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+
+livereload: true
+
+sass:
+  style: compressed
+  source_dir: _sass
+  # load_paths: 
+    # - node_modules
+
+#google_analytics: UA-code-here
+cookie_policy: /cookie-policy/
+
 defaults:
-  - scope:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      show_sidebar: true
+  -
+    scope:
       path: ""
       type: "posts"
     values:
-      permalink: ""
+      author: "C.S. Rhymes"
+      layout: post
+      image: https://picsum.photos/id/16/800/600
+      show_sidebar: true
+
+markdown: kramdown
+highlighter: rouge
+
+footer_menu: example_footer_menu
+
+collections:
+  products: 
+    output: true
+    layout: product
+    image: https://picsum.photos/id/16/800/600
+    show_sidebar: false
+
+social:
+  facebook: https://www.facebook.com/
+  instagram: https://www.instagram.com/
+  threads: https://www.threads.net/
+  tiktok: https://www.tiktok.com/
+  x: https://www.x.com/
+  youtube: https://www.youtube.com/
+  

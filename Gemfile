@@ -1,7 +1,15 @@
+# frozen_string_literal: true
+
 source "https://rubygems.org"
 gemspec
-# ...existing code...
-# Removido `github-pages` para evitar conflito com a dependência Jekyll do tema.
-# Usar Jekyll 4 localmente (compatível com freelancer-theme-jekyll.gemspec).
-gem "jekyll"
-# ...existing code...
+
+group :jekyll_plugins do
+    gem "jekyll-feed", "~> 0.6"
+    gem "jekyll-sitemap"
+    gem "jekyll-paginate"
+    gem "jekyll-seo-tag"
+    gem 'jekyll-redirect-from'
+end
+
+# Evita polling no Windows
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?

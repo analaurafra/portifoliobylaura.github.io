@@ -1,8 +1,10 @@
-.DS_Store
-
-_site
+*.gem
+.bundle
 .sass-cache
-.jekyll-cache
-.jekyll-metadata
-
+_site
 Gemfile.lock
+.idea
+.DS_Store
+node_modules/*
+!node_modules/bulma
+!node_modules/bulma-block-list
