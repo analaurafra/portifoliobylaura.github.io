@@ -1,28 +1,29 @@
 # Site-wide settings
 # ------------------
 #
-# title: Your awesome title
+title: Portifólio By Ana
 #
-# author:
-#   name: GitHub User
-#   email: your-email@domain.com
+author:
+   name: analaurafra
+   email: your-email@domain.com
 #
 # The `>` after `description:` means to ignore line-breaks until next key. If
 #   you wish to omit the line-break after the end of text, use `>-` instead.
-# description: >
-#   Write an awesome description for your new site here. You can edit this line
-#   in _config.yml. It will appear in your document head meta (for Google search
-#   results) and in your feed.xml site description.
+description: >
+  Estudando e praticando soluções digitais.
 
-baseurl: "/portifoliobylaura.github.io"  # ou "" para user site
-
+url: "https://analaurafra.github.io"     # domínio público (sem baseurl)
+baseurl: "/portifoliobylaura.github.io"  # ou "" se for repo user site (analaurafra.github.io)
+# permalink: /:categories/:title/          # opcional: URLs "limpas"
+include:
+  - assets  
 
 # Build settings
 # --------------
 #
 # If you wish to use the gem-version of Minima with or without a Gemfile, use
 #   the following setting:
-# theme: minima
+theme: minima
 #
 # **OR** if you wish to use the theme directly from the GitHub repository by
 #   bypassing a Gemfile, use the following setting instead.
@@ -48,8 +49,8 @@ sass:
 #  *All described config keys below should be nested under the top-level
 #   `minima` key.*
 #
-# minima:
-#   Minima skin selection. Available skins are:
+ minima:
+   Minima skin selection. Available skins are:
 #     * classic            Default, light color scheme.
 #     * dark               Dark variant of the classic skin.
 #     * auto               Adaptive skin based on the classic and dark skins.
@@ -79,14 +80,14 @@ sass:
 #       * title    Tooltip rendered on hovering over icon.
 #       * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
 #       * url      Full URL of social profile.
-#   social_links:
-#     - title: Minima Theme repository at GitHub
-#       icon: github
-#       url: "https://github.com/jekyll/minima"
-#     - title: Jekyll at X (formerly Twitter)
-#       icon: x-twitter
-#       url: "https://x.com/jekyllrb"
-#
+   social_links:
+     - title: Minima Theme repository at GitHub
+       icon: github
+       url: "https://github.com/jekyll/minima"
+     - title: Jekyll at X (formerly Twitter)
+       icon: x-twitter
+       url: "https://x.com/jekyllrb"
+
 #   Hide syndication feed subscription link.
 #     RSS / Atom feed link is always rendered as the last item of social-links
 #     list. Set below key to `true` to not have the link to feed rendered as

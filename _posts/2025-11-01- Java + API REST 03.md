@@ -16,15 +16,9 @@ O **Med Center** é uma ferramenta de **CRM (Customer Relationship Management)**
 - Language Level - Java `21`;
 - Spring Boot `3`.
 
-> Para verificar no Itellij : File -> Project Structure -> Project
-
-<!-- <img src="/img_03.png/"/> -->
-<!-- <img src="/assets/img/img_03.png"/> -->
+Para verificar no Itellij : File -> Project Structure 
 
 <img src="{{ '/assets/img/img_03.png' | relative_url }}" alt="img_03"/>
-
-
-![teste](/img/img_03.png)
 
 <br>
 <br>
@@ -41,7 +35,7 @@ Neste projeto iremos utilizar:
 - Java : `17`;
 - Package - `jar`.
 
-<img src="/img/img_05.png"/>
+<img src="{{ '/assets/img/img_05.png' | relative_url }}" alt="img_05"/>
 <br>
 <br>
 
@@ -54,7 +48,7 @@ Neste projeto iremos utilizar:
 Inicialmente as sessões de testes unitários foram comentadas.
 Foi incluindo esse tipo de arquivo para abranger as rotinas de CI e CI.
 
-<img src="/img/img_02.png"/>
+<img src="{{ '/assets/img/img_02.png' | relative_url }}" alt="img_02"/>
 <br>
 <br>
 
@@ -63,7 +57,7 @@ Foi incluindo esse tipo de arquivo para abranger as rotinas de CI e CI.
 Foi criado um projeto através das ferramentas de Github Projetos em formato de <a href="https://github.com/users/analaurafra/projects/1/views/1" target="_blank">Kanban Board</a>, onde as **Issues** são evoluídas, conforme evolução
 do projeto.
 
-<img src="/img/img_05.png"/>
+<img src="{{ '/assets/img/img_05.png' | relative_url }}" alt="img_05"/>
 <br>
 <br>
 
@@ -76,11 +70,9 @@ Acesse ao Maven e realizei o **clean** e o **install** para baixar todas as depe
 
 O Maven também poderá ser instalado via Plugin em sua IDE, acesse as configurações de sua IDE e busque por: `Plugins -> Marketplace -> Maven`
 
-<img src="/img/img_04.png"/>
+<img src="{{ '/assets/img/img_04.png' | relative_url }}" alt="img_04"/>
 <br>
 <br>
-
-
 
 ## Testando a API:
 
@@ -93,7 +85,7 @@ Para iniciarmos a utilização do Insomnia, baixe o software através do site: [
 
 Após a instalação, abra o software e crie um novo projeto, clicando em "Create" e selecionando "New Request".
 
-<img src="/img/img_06_01.png"/>
+<img src="{{ '/assets/img/img_06_01.png' | relative_url }}" alt="img_06_01"/>
 <br>
 <br>
 
@@ -101,30 +93,30 @@ Após a instalação, abra o software e crie um novo projeto, clicando em "Creat
 ### Passo 02
 No menu lateral esquerdo identifique a opção `Colletions`, criei um nome para sua colletion, neste caso nomearemos como **Requisições**, pois será neste collection que testaremos o **CRUD** do nosso sistema.
 
-<img src="/img/img_06_02.png"/>
+<img src="{{ '/assets/img/img_06_02.png' | relative_url }}" alt="img_06_02"/>
 <br>
 
-<img src="/img/img_06_03.png"/>
+<img src="{{ '/assets/img/img_06_03.png' | relative_url }}" alt="img_06_03"/>
 <br>
 
-<img src="/img/img_06_04.png"/>
+<img src="{{ '/assets/img/img_06_04.png' | relative_url }}" alt="img_06_04"/>
 <br>
 
-<img src="/img/img_06_05.png"/>
+<img src="{{ '/assets/img/img_06_05.png' | relative_url }}" alt="img_06_05"/>
 <br>
 <br>
 Após nomear a Collection Requisição, selecione o método HTTP desejado **(GET, POST, PUT, DELETE, etc.)** e insira a URL da API que você deseja testar.
 
-<img src="/img/img_06_06.png"/>
+<img src="{{ '/assets/img/img_06_06.png' | relative_url }}" alt="img_06_06"/>
 <br>
 
-<img src="/img/img_06_07.png"/>
+<img src="{{ '/assets/img/img_06_07.png' | relative_url }}" alt="img_06_07"/>
 <br>
 
 
 Iniciaremos com o **Método POST**, o qual irá **enviar** os dados para a API.
 
-<img src="/img/img_06_08.png"/>
+<img src="{{ '/assets/img/img_06_08.png' | relative_url }}" alt="img_06_08"/>
 <br>
 <br>
 
@@ -157,7 +149,7 @@ Utilize o exemplo abaixo no prompt de corpo da requisição:
 
 Na imagem abaixo temos o exemplo do corpo da requisição preenchida e enviada, porém temos como resultado um erro, já previsível, pois estamos realizando uma requisição para o endereço <a href="http://localhost:8080/medicos" target="_blank">http://localhost:8080/medicos</a>, porém ainda não foi criado nenhum `controller` na nossa aplicação, que atenda a essa requisição.
 
-<img src="/img/img_06_09.png"/>
+<img src="{{ '/assets/img/img_06_09.png' | relative_url }}" alt="img_06_09"/>
 <br>
 <br>
 
@@ -169,7 +161,7 @@ A classe `controller` é responsável por receber e mapear as requisições HTTP
 
 Para testar à requisições e identificar se os dados foram enviados corretamente, foi criado uma **Classe Controller** `MedicoController.java`.
 
-<img src="/img/img_06_12.png"/>
+<img src="{{ '/assets/img/img_06_12.png' | relative_url }}" alt="img_06_12"/>
 <br>
 <br>
 
@@ -199,14 +191,13 @@ public class MedicoController {
 
 A seguir vá até ao Insomnia e envie novamente a **requisição POST** para o endpoint [http://localhost:8080/medicos](http://localhost:8080/medicos).
 
-<img src="/img/img_06_10.png"/>
+<img src="{{ '/assets/img/img_06_10.png' | relative_url }}" alt="img_06_10"/>
 <br>
 <br>  
 
 Para verificar se houve alguma resposta, verifique o console do Spring Boot, onde você verá os dados enviados sendo impressos.
 
-<img src="/img/img_06_11.png"/>
-<br>
+<img src="{{ '/assets/img/img_06_11.png' | relative_url }}" alt="img_06_11"/><br>
 <br>
 
 Para garantir que a nossa requiição está sendo enviada corretamente, é necessário incluir `@RequestBody` no parâmetro do método `cadastrar`, para que o Spring Boot saiba que deve mapear o corpo da requisição para o parâmetro do método.
@@ -220,28 +211,8 @@ Para garantir que a nossa requiição está sendo enviada corretamente, é neces
 
 Execute novamente a aplicação e envie a requisição pelo Insomnia e a seguir verifique no prompt do Spring Boot se os dados foram impressos corretamente:
 
-<img src="/img/img_06_13.png"/>
+<img src="{{ '/assets/img/img_06_13.png' | relative_url }}" alt="img_06_13"/><br>
 <br>
-<br>
 
 
 
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
-
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
