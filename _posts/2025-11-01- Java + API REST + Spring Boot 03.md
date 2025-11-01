@@ -2,11 +2,11 @@
 layout: post
 ---
 
-##  Projeto: MedCenter - Java + API REST 3
+##  Projeto: MedCenter - Spring Boot 3 + Java + API REST 
 
 O **Med Center** é uma ferramenta de **CRM (Customer Relationship Management)**, o qual tem como principal a gestão de cadastrado de profissionais da área da saúde, especificamente médicos. 
 
-### Utilizando o Java + API REST 3
+### Utilizando o Spring Boot 3 + Java + API REST 
 
 #### Especificações da Estrutura do Projeto
 
@@ -35,7 +35,7 @@ Neste projeto iremos utilizar:
 - Java : `17`;
 - Package - `jar`.
 
-<img src="{{ '/assets/img/img_05.png' | relative_url }}" alt="img_05"/>
+<img src="{{ '/assets/img/img_01.png' | relative_url }}" alt="img_01"/>
 <br>
 <br>
 
@@ -200,19 +200,161 @@ Para verificar se houve alguma resposta, verifique o console do Spring Boot, ond
 <img src="{{ '/assets/img/img_06_11.png' | relative_url }}" alt="img_06_11"/><br>
 <br>
 
-Para garantir que a nossa requiição está sendo enviada corretamente, é necessário incluir `@RequestBody` no parâmetro do método `cadastrar`, para que o Spring Boot saiba que deve mapear o corpo da requisição para o parâmetro do método.
+Para garantir que a nossa requisição está sendo enviada corretamente, é necessário incluir `@RequestBody`(corpo) no parâmetro do método `cadastrar`, para que o Spring Boot saiba que deve mapear o corpo da requisição para o parâmetro do método.
 
-```
+{% highlight ruby %}
+
     @PostMapping
     public void cadastrar(@RequestBody String json) {
         System.out.println(json);
     }
-```
+
+{% endhighlight %}
 
 Execute novamente a aplicação e envie a requisição pelo Insomnia e a seguir verifique no prompt do Spring Boot se os dados foram impressos corretamente:
 
 <img src="{{ '/assets/img/img_06_13.png' | relative_url }}" alt="img_06_13"/><br>
 <br>
 
+Em um outro exemplo, podemos testar o spring requisitando ao invés do bloco todo, apenas um dos itens. Utilizando o **cep** individualmente, testamos a requisição do mesmo no Insomnia e o retorno do mesmo.
 
 
+<img src="{{ '/assets/img/img_07.png' | relative_url }}" alt="img_07"/><br>
+<br>
+
+**ATENÇÃO:** Porém ao realizar a requisição novamente, ainda será retornado na tela o bloco do `json` com todas as informações, pois quando a requisição utiliza uma `string` a mesma entende tudo como String trzendo o bloco completo(imagem anterior). 
+
+**Para trazer os campos individualmente é necessário criar uma classe separada para cada e especificá-la posteriormente.** 
+
+
+### Criando Campos Individuais - Padrão DTO (Data Transfer Object)
+
+#### Classe - DadosCadastroMedico
+
+Na classe `MedicoController` substitua o `string` do método cadastrar, criando uma nova classe, `DadosCadastroMedico`, e o parâmetro `dados`. 
+
+#### Cadastrando Record - Especialidades
+
+Para cadastrar essa nova classe, foi utilizado uma recurso,o qual deixa o código mais limpo e menos verboso. 
+
+O sistema sugere o recurso `record`para correção
+
+Obs: O `record` também é **imutável por padrão**, o que significa que os campos não podem ser alterados após a criação do objeto
+
+
+<img src="{{ '/assets/img/img_08_01.png' | relative_url }}" alt="img_08_01"/><br>
+<br>
+
+Altere o nome do novo **pacote** para `medicos`, pois tudo referente a médicos, será criado no mesmo. 
+
+<img src="{{ '/assets/img/img_08_02.png' | relative_url }}" alt="img_08_02"/><br>
+<br>
+
+#### Cadastrando Enun - Especialidades
+
+Na classe **DadoscadatrosMedicos**, será necessário gerar um novo `enum` para `especialidade`, utilize o mesmo recurso de correção e opte por **criar enum**. Cadastre o enum no pacote `medicos`.
+
+<img src="{{ '/assets/img/img_08_03.png' | relative_url }}" alt="img_08_03"/><br>
+<br>
+
+Os itens de cadastros para esta aplicação serão cadastrados conforme issue <a href="https://github.com/analaurafra/med_voll_api/issues/6" target="_blank">Cadastro de Médicos</a> no Github.
+
+<img src="{{ '/assets/img/img_09.png' | relative_url }}" alt="img_09"/><br>
+<br>
+
+#### Cadastrando Record - DadosEndereco
+
+A seguir iremos retornar à classe **DadoscadatrosMedicos** e inderir um novo item `DadosEndereco`, sendo necessário criar um novo `record` e um novo pacote `endereco` para este item, para abranger todos os elementos que compõem um endereço completo. 
+
+<img src="{{ '/assets/img/img_10.png' | relative_url }}" alt="img_10"/><br>
+<br>
+
+O `record` `DadosEndereco` devem possuir todos os campos:
+
+<img src="{{ '/assets/img/img_11.png' | relative_url }}" alt="img_11"/><br>
+<br>
+
+
+Ao retornar na classe `MedicoController`, substitua o **parâmetro** `String json` para o `record` `DadosCadastroMedico`. Execute a aplicação e realize uma nova requisição ao Insomnia. 
+
+<img src="{{ '/assets/img/img_12.png' | relative_url }}" alt="img_11"/><br>
+<br>
+
+Iniciamente foi gerado um **Erro 400**, pois os valores informados no `enum` foram cadastrados em maiúsculo, sendo necessário adequar o arquivo json. 
+
+
+<img src="{{ '/assets/img/img_13.png' | relative_url }}" alt="img_12"/><br>
+<br>
+
+Após adequações, ao realizar uma nova requisição identificamos o sucesso no retorno da requisição via Insomnia e também no Intelij.
+
+<img src="{{ '/assets/img/img_14.png' | relative_url }}" alt="img_13"/><br>
+<br>
+
+<img src="{{ '/assets/img/img_15.png' | relative_url }}" alt="img_14"/><br>
+<br>
+
+**Obs:** Os itens (complemento e número) são opcionais. Se eu apagar um item do json, mas ainda mantê-lo cadastrado no meu record, não serão gerados erros, mas estes itens retornarão como null.
+
+No exemplo abaixo, retirei os itens: Complemento e Número do código `json`.
+
+<img src="{{ '/assets/img/img_16.png' | relative_url }}" alt="img_14"/><br>
+<br>
+
+Ao executar a aplicação, identificamos os itens em `null`.
+
+<img src="{{ '/assets/img/img_16_01.png' | relative_url }}" alt="img_14"/><br>
+<br>
+
+Como estamos utilizando o `record`, o sistema imprime as informações neste formato.
+
+```
+NOMEDORECORD[ITEM=DADODOINTEM, ITEM02=DADOITEM02]
+
+```
+
+#### Classe Controller - PacientesController.java
+
+Para realizar o cadastro de Pacientes, realizamos os passos anteriores, porém, alguns contaram com algumas adequações:
+
+<img src="{{ '/assets/img/img_17.png' | relative_url }}" alt="img_17"/><br>
+<br>
+
+- Criação da Classe Java Record `DadosCadastroPaciente.java`. A informações para cadastros de pacientes, está disponível na issue <a href="https://github.com/analaurafra/med_voll_api/issues/6" target="_blank">Cadastro de Pacientes</a> no Github.
+
+
+<img src="{{ '/assets/img/img_17_01.png' | relative_url }}" alt="img_17_01"/><br>
+<br>
+
+- Criação de arquivo Json com dados de cadastro de paciente e testes de requisições
+
+<img src="{{ '/assets/img/img_17_02.png' | relative_url }}" alt="img_17_02"/><br>
+<br>
+
+
+{% highlight ruby %}
+
+{
+	"nome": "Ana Laura Martins",
+	"email": "analaura_fra@gmail.com",
+	"telefone": "123456",
+	"cpf":"12345678999",
+	"endereco": {
+		"logradouro": "rua 2",
+		"bairro": "bairro",
+		"cep": "12345678",
+		"cidade": "São Paulo",
+		"uf": "SP",
+		"numero": "1",
+		"complemento": "complemento"
+	}
+}
+
+{% endhighlight %}
+
+**Dica**: Fique atento a classe Cadastro de Pacientes deve indicar a tela <a href="http://localhost:8080/pacientes" target="_blank">http://localhost:8080/pacientes</a>. 
+
+- Execução da aplicação local:
+
+<img src="{{ '/assets/img/img_17_03.png' | relative_url }}" alt="img_17_03"/><br>
+<br>
