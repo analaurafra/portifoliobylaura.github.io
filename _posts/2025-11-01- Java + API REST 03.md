@@ -19,6 +19,7 @@ O **Med Center** é uma ferramenta de **CRM (Customer Relationship Management)**
 > Para verificar no Itellij : File -> Project Structure -> Project
 
 <!-- <img src="/img_03.png/"/> -->
+<img src="/assets/img/img_03.png"/>
 
 ![teste](/img/img_03.png)
 
