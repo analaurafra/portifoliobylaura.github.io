@@ -1,4 +1,5 @@
-> [!WARNING]
+
+<!-- [!WARNING]
 > **The `master` branch is under active development towards a semver-major release with non-backwards-compatible changes.**
 > 
 > While you may use this theme in the current state either via the `jekyll-remote-theme` plugin or via a Gemfile, it is
@@ -371,3 +372,5 @@ To test your theme, run `script/server` (or `bundle exec jekyll serve`) and open
 ## License
 
 The theme is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+
+--> 
