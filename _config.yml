@@ -4,7 +4,7 @@
 title: Portfólio By Laura
 #
 author:
-   name: analaurafra
+   name: Ana Laura Francisco
    email: analaura.francisco@gmail.com
    linkedin: https://www.linkedin.com/in/analauramartins/
    github: https://github.com/analaurafra/
@@ -12,7 +12,9 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key. If
 #   you wish to omit the line-break after the end of text, use `>-` instead.
 description: >
-  Estudando e praticando soluções digitais.
+  Portfólio de Ana Laura Francisco — projetos, certificações e documentação técnica em backend, cloud e IA.
+
+lang: pt-BR
 
 url: "https://analaurafra.github.io"     # domínio público (sem baseurl)
 baseurl: "/portfoliobylaura.github.io"  # ou "" se for repo user site (analaurafra.github.io)
@@ -83,12 +85,12 @@ sass:
 #       * icon     Font Awesome icon id. `github` corresponds to `fa-github`.
 #       * url      Full URL of social profile.
    social_links:
-     - title: Minima Theme repository at GitHub
+     - title: GitHub de Ana Laura
        icon: github
-       url: "https://github.com/jekyll/minima"
-     - title: Jekyll at X (formerly Twitter)
-       icon: x-twitter
-       url: "https://x.com/jekyllrb"
+       url: "https://github.com/analaurafra/"
+     - title: LinkedIn de Ana Laura
+       icon: linkedin
+       url: "https://www.linkedin.com/in/analauramartins/"
 
 #   Hide syndication feed subscription link.
 #     RSS / Atom feed link is always rendered as the last item of social-links

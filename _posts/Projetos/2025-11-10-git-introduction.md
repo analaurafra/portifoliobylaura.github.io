@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Git - Introdução"
-categories: junk
+categories: [git]
+series_order: 1
 author:
 - Ana Laura Martins
 meta: "Springfield"

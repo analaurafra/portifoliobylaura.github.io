@@ -1,0 +1,40 @@
+- name: AWS Certified Developer – Associate
+  issuer: Amazon Web Services (AWS)
+  status: em-preparacao
+  date: null
+  credential_url: null
+  credential_id: null
+  badge: /assets/images/certifications/aws-developer-associate.svg
+  description_key: content.certs.aws_developer
+  featured: true
+  featured_order: 1
+  tags: [AWS, Cloud, Developer]
+  description: Preparação para certificação com foco em serverless, IAM, Lambda, DynamoDB, S3, API Gateway e boas práticas de desenvolvimento na AWS.
+  related_doc: /documentacao/aws/
+
+- name: Fundamentos de IA Generativa com Bedrock
+  issuer: Nexa / AWS
+  status: concluida
+  date: 2025-11
+  credential_url: null
+  credential_id: null
+  badge: /assets/images/certifications/aws-bedrock-ia.svg
+  description_key: content.certs.bedrock_ia
+  featured: true
+  featured_order: 2
+  tags: [IA, AWS, Bedrock, SageMaker]
+  description: Bootcamp imersivo sobre IA generativa — Bedrock, SageMaker, PartyRock e aplicações práticas com serviços AWS.
+  related_doc: /documentacao/ia/
+
+- name: Decola Tech 2ª Edição
+  issuer: Avanade
+  status: concluida
+  date: 2024-11
+  credential_url: https://github.com/analaurafra/docseries-avanadebootcamp
+  credential_id: null
+  badge: /assets/images/certifications/avanade-decola.svg
+  description_key: content.certs.decola
+  featured: false
+  tags: [C#, Bootcamp, .NET]
+  description: Projeto de conclusão do bootcamp Decola Tech com foco em desenvolvimento .NET e C#.
+  related_doc: null

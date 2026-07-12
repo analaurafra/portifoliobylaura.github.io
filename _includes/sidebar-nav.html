@@ -1,0 +1,55 @@
+<aside id="site-sidebar" class="site-sidebar" aria-label="Menu lateral">
+  <nav class="sidebar-nav">
+    <p class="sidebar-section-label" data-i18n="nav.menu">Menu</p>
+
+    <div class="sidebar-links">
+      {%- for item in site.data.navigation.sidebar -%}
+        <a class="sidebar-link" href="{{ item.url | relative_url }}" data-i18n="{{ item.title_key }}">
+          {{ item.title | default: item.title_key | escape }}
+        </a>
+      {%- endfor -%}
+    </div>
+
+    {%- if site.data.navigation.docs.size > 0 -%}
+      <p class="sidebar-section-label" data-i18n="nav.docs">Documentação</p>
+
+      <div class="sidebar-groups">
+        {%- for section in site.data.navigation.docs -%}
+          {%- assign section_posts = site.posts
+            | where_exp: "item", "item.categories contains section.category"
+            | sort: "series_order" -%}
+
+          <div class="nav-subgroup sidebar-group">
+            <div class="nav-subgroup-header">
+              <a class="nav-subgroup-title sidebar-group-title" href="{{ section.url | relative_url }}" data-i18n="{{ section.title_key }}">
+                {{ section.title | escape }}
+              </a>
+              {%- if section_posts.size > 0 -%}
+                <button
+                  class="nav-subgroup-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  data-i18n-aria="nav.expand_articles"
+                  data-i18n-title="{{ section.title | escape }}"
+                >
+                  <span class="nav-chevron" aria-hidden="true"></span>
+                </button>
+              {%- endif -%}
+            </div>
+
+            {%- if section_posts.size > 0 -%}
+              <div class="nav-subgroup-items">
+                {%- for post in section_posts -%}
+                  <a class="nav-subitem sidebar-subitem" href="{{ post.url | relative_url }}">
+                    {{ post.title | escape }}
+                  </a>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </nav>
+</aside>
+<div class="sidebar-backdrop" hidden></div>

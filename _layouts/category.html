@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<div class="category-page">
+  <header class="category-header">
+    <a class="back-link" href="{{ '/' | relative_url }}" data-i18n="common.back_home">&larr; Voltar ao início</a>
+    <h1 class="page-heading"{% if page.title_key %} data-i18n="{{ page.title_key }}"{% endif %}>{{ page.title | escape }}</h1>
+    {%- if page.description_key -%}
+      <p class="category-description" data-i18n="{{ page.description_key }}">{{ page.description | escape }}</p>
+    {%- elsif page.description -%}
+      <p class="category-description">{{ page.description | escape }}</p>
+    {%- endif -%}
+  </header>
+
+  {%- assign category_posts = site.posts
+    | where_exp: "item", "item.categories contains page.category"
+    | sort: "series_order" -%}
+
+  {%- if category_posts.size > 0 -%}
+    <ol class="category-post-list">
+      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+      {%- for post in category_posts -%}
+        <li class="category-post-item">
+          <a class="category-post-link" href="{{ post.url | relative_url }}">
+            <span class="category-post-title">{{ post.title | escape }}</span>
+            {%- if post.excerpt -%}
+              <span class="category-post-excerpt">{{ post.excerpt | strip_html | truncate: 140 }}</span>
+            {%- endif -%}
+          </a>
+          <time class="category-post-date" datetime="{{ post.date | date_to_xmlschema }}">
+            {{ post.date | date: date_format }}
+          </time>
+        </li>
+      {%- endfor -%}
+    </ol>
+  {%- else -%}
+    <p class="category-empty" data-i18n="pages.category_empty">Nenhum artigo publicado nesta categoria ainda.</p>
+  {%- endif -%}
+</div>

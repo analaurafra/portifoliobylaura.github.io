@@ -1,0 +1,30 @@
+<div class="site-preferences" aria-label="Preferências do site">
+  <div class="pref-dropdown lang-switcher">
+    <button
+      class="pref-btn lang-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      data-i18n-aria="prefs.lang_aria"
+    >
+      <span class="pref-icon" aria-hidden="true">🌐</span>
+      <span class="lang-current">PT</span>
+    </button>
+    <ul class="pref-menu lang-menu" role="listbox">
+      <li><button type="button" class="pref-menu-item" data-lang="pt-BR" role="option">Português (BR)</button></li>
+      <li><button type="button" class="pref-menu-item" data-lang="en" role="option">English</button></li>
+      <li><button type="button" class="pref-menu-item" data-lang="de" role="option">Deutsch</button></li>
+      <li><button type="button" class="pref-menu-item" data-lang="es" role="option">Español</button></li>
+    </ul>
+  </div>
+
+  <button
+    class="pref-btn theme-toggle"
+    type="button"
+    data-i18n-aria="prefs.theme_aria"
+    aria-pressed="false"
+  >
+    <span class="theme-icon-light pref-icon" aria-hidden="true">☀</span>
+    <span class="theme-icon-dark pref-icon" aria-hidden="true" hidden>🌙</span>
+  </button>
+</div>

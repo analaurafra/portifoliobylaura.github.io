@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Java + API Rest + Spring Boot 3"
-categories: junk
+categories: [java]
+series_order: 1
 author:
 - Ana Laura
 meta: "Springfield"

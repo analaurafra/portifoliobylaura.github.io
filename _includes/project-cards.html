@@ -1,0 +1,59 @@
+{%- assign projects = include.projects | default: site.data.projects -%}
+{%- if include.featured_only -%}
+  {%- assign projects = projects | where_exp: "item", "item.featured == true" | sort: "featured_order" -%}
+{%- elsif include.others_only -%}
+  {%- assign projects = projects | where_exp: "item", "item.featured != true" -%}
+{%- else -%}
+  {%- assign featured_projects = projects | where_exp: "item", "item.featured == true" | sort: "featured_order" -%}
+  {%- assign other_projects = projects | where_exp: "item", "item.featured != true" -%}
+  {%- assign projects = featured_projects | concat: other_projects -%}
+{%- endif -%}
+{%- assign limit = include.limit | default: 999 -%}
+{%- assign count = 0 -%}
+
+<div class="showcase-grid project-grid">
+  {%- for project in projects -%}
+    {%- if count >= limit -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- assign count = count | plus: 1 -%}
+
+    <article class="showcase-card project-card{% if project.featured %} project-card-featured{% endif %}">
+      <header class="showcase-card-header">
+        <h3 class="showcase-card-title">
+          <a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">
+            {{ project.name | escape }}
+          </a>
+        </h3>
+        {%- if project.language -%}
+          <span class="showcase-badge showcase-badge-lang">{{ project.language | escape }}</span>
+        {%- endif -%}
+      </header>
+
+      <p class="showcase-card-description"{% if project.description_key %} data-i18n="{{ project.description_key }}"{% endif %}>{{ project.description | escape }}</p>
+
+      {%- if project.tags.size > 0 -%}
+        <ul class="showcase-tags">
+          {%- for tag in project.tags -%}
+            <li class="showcase-tag">{{ tag | escape }}</li>
+          {%- endfor -%}
+        </ul>
+      {%- endif -%}
+
+      <footer class="showcase-card-footer">
+        {%- if project.status -%}
+          <span class="showcase-status showcase-status-{{ project.status }}" data-i18n-status="{{ project.status }}">
+            {%- case project.status -%}
+              {%- when "concluido" -%}Concluído
+              {%- when "em-desenvolvimento" -%}Em desenvolvimento
+              {%- else -%}{{ project.status | escape }}
+            {%- endcase -%}
+          </span>
+        {%- endif -%}
+        <a class="showcase-card-link" href="{{ project.url }}" target="_blank" rel="noopener noreferrer" data-i18n="common.view_github">
+          Ver no GitHub &rarr;
+        </a>
+      </footer>
+    </article>
+  {%- endfor -%}
+</div>

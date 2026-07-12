@@ -1,0 +1,95 @@
+---
+layout: base
+---
+<div class="about-page">
+  <header class="about-hero">
+    <div class="about-avatar" aria-hidden="true">AL</div>
+    <div class="about-hero-content">
+      <h1 class="about-name">Ana Laura Francisco</h1>
+      <p class="about-role" data-i18n="about.role">Desenvolvedora de Software Junior · Brasil</p>
+      <p class="about-summary" data-i18n="about.summary">
+        Estudando e praticando soluções digitais com foco em backend, cloud e inteligência artificial.
+        Construo APIs, experimento com arquiteturas serverless na AWS e documento meus aprendizados
+        de forma aberta neste portfólio.
+      </p>
+      <div class="about-links">
+        {%- if site.author.github -%}
+          <a class="about-link-btn" href="{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub</a>
+        {%- endif -%}
+        {%- if site.author.linkedin -%}
+          <a class="about-link-btn" href="{{ site.author.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        {%- endif -%}
+        {%- if site.author.email -%}
+          <a class="about-link-btn about-link-btn-secondary" href="mailto:{{ site.author.email }}">E-mail</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </header>
+
+  <section class="about-section">
+    <h2 data-i18n="about.what_i_do_title">O que faço</h2>
+    <p data-i18n="about.what_i_do">
+      Sou desenvolvedora em formação, com trajetória prática em projetos de API REST, estudos de cloud computing
+      e experimentos com IA generativa. Gosto de transformar o que aprendo em código versionado, documentação
+      técnica e projetos que posso compartilhar publicamente.
+    </p>
+  </section>
+
+  <section class="about-section">
+    <h2 data-i18n="about.stack_title">Stack e interesses</h2>
+    <div class="about-skills-grid">
+      <div class="about-skill-group">
+        <h3 data-i18n="about.backend">Backend</h3>
+        <ul class="about-skill-list">
+          <li>Java · Spring Boot 3</li>
+          <li>Python · FastAPI</li>
+          <li>API REST · CRM</li>
+        </ul>
+      </div>
+      <div class="about-skill-group">
+        <h3 data-i18n="about.cloud">Cloud & DevOps</h3>
+        <ul class="about-skill-list">
+          <li>AWS (Lambda, DynamoDB, S3, IAM)</li>
+          <li>Serverless · AWS CDK</li>
+          <li>Docker · Git</li>
+        </ul>
+      </div>
+      <div class="about-skill-group">
+        <h3 data-i18n="about.data_ai">Dados & IA</h3>
+        <ul class="about-skill-list">
+          <li>SQL · modelagem relacional</li>
+          <li>LLMs · RAG · Vector DB</li>
+          <li>AWS Bedrock · SageMaker</li>
+        </ul>
+      </div>
+      <div class="about-skill-group">
+        <h3 data-i18n="about.frontend">Frontend & outros</h3>
+        <ul class="about-skill-list">
+          <li>TypeScript</li>
+          <li>C# · .NET (Bootcamp Avanade)</li>
+          <li>GitHub Pages · Jekyll</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <h2 data-i18n="about.portfolio_title">Neste portfólio</h2>
+    <ul class="about-portfolio-links">
+      <li><a href="{{ '/projetos/' | relative_url }}"><strong data-i18n="nav.projects">Projetos</strong> — <span data-i18n="about.portfolio_projects">vitrine dos repositórios no GitHub</span></a></li>
+      <li><a href="{{ '/certificacoes/' | relative_url }}"><strong data-i18n="nav.certifications">Certificações</strong> — <span data-i18n="about.portfolio_certs">trilha profissional e formações</span></a></li>
+      <li><a href="{{ '/documentacao/sql/' | relative_url }}"><strong data-i18n="nav.docs">Documentação</strong> — <span data-i18n="about.portfolio_docs">anotações técnicas de SQL, Git, AWS, Java e IA</span></a></li>
+    </ul>
+  </section>
+
+  <section class="about-section">
+    <h2 data-i18n="about.focus_title">Em foco agora</h2>
+    <ul class="about-focus-list">
+      <li data-i18n="about.focus_aws">Certificação AWS Certified Developer – Associate</li>
+      <li data-i18n="about.focus_medvoll">Projeto Med Voll API — gestão médica com Spring Boot</li>
+      <li data-i18n="about.focus_rag">Experimentos com RAG e LLMs via FastAPI</li>
+    </ul>
+  </section>
+
+  {{ content }}
+</div>

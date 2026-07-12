@@ -1,0 +1,39 @@
+---
+layout: base
+---
+<div class="showcase-page">
+  <header class="showcase-header">
+    <a class="back-link" href="{{ '/' | relative_url }}" data-i18n="common.back_home">&larr; Voltar ao início</a>
+    <h1 class="page-heading" data-i18n="pages.projects_title">Projetos</h1>
+    <p class="showcase-page-description" data-i18n="pages.projects_desc">Vitrine de projetos open source e repositórios de estudo no GitHub.</p>
+  </header>
+
+  <p data-i18n="pages.projects_intro">Repositórios selecionados que representam minha prática com backend, cloud, IA e desenvolvimento web.</p>
+
+  {%- assign other_projects = site.data.projects | where_exp: "item", "item.featured != true" -%}
+
+  <div class="showcase-sections">
+    <section class="showcase-section">
+      <div class="showcase-section-header">
+        <h2 data-i18n="home.featured_projects">Projetos em destaque</h2>
+      </div>
+      {%- include project-cards.html featured_only=true -%}
+    </section>
+
+    {%- if other_projects.size > 0 -%}
+      <section class="showcase-section">
+        <div class="showcase-section-header">
+          <h2 data-i18n="pages.other_projects">Outros projetos</h2>
+        </div>
+        {%- include project-cards.html others_only=true -%}
+      </section>
+    {%- endif -%}
+  </div>
+
+  <p class="showcase-github-note">
+    <span data-i18n="pages.projects_github">Mais repositórios em</span>
+    <a href="{{ site.author.github }}" target="_blank" rel="noopener noreferrer">GitHub @analaurafra</a>.
+  </p>
+
+  {{ content }}
+</div>

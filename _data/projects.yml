@@ -1,0 +1,110 @@
+- name: Med Voll API
+  url: https://github.com/analaurafra/med_voll_api
+  description_key: content.projects.med_voll
+  description: API REST para gestão médica — CRM de profissionais da saúde com Java 21 e Spring Boot 3.
+  language: Java
+  tags: [Java, Spring Boot, API REST, CRM]
+  featured: true
+  featured_order: 1
+  status: em-desenvolvimento
+
+- name: Ecommerce AWS
+  url: https://github.com/analaurafra/EcommerceAWS
+  description_key: content.projects.ecommerce_aws
+  description: E-commerce serverless com TypeScript, AWS CDK, Lambda e arquitetura cloud-native.
+  language: TypeScript
+  tags: [AWS, Serverless, TypeScript, CDK]
+  featured: true
+  featured_order: 2
+  status: concluido
+
+- name: RAG FastAPI + LLM
+  url: https://github.com/analaurafra/rag_fastapi_llm
+  description_key: content.projects.rag_fastapi
+  description: Pipeline RAG completo — FastAPI, Vector DB, recuperação de contexto e respostas via LLM.
+  language: Python
+  tags: [Python, FastAPI, IA, LLM, RAG]
+  featured: true
+  featured_order: 3
+  status: concluido
+
+- name: FastAPI + OpenAI
+  url: https://github.com/analaurafra/fastapi_ai_openia
+  description_key: content.projects.fastapi_openai
+  description: Experimentos com APIs de IA e integração com LLMs via FastAPI.
+  language: Python
+  tags: [Python, FastAPI, IA]
+  featured: false
+  status: concluido
+
+- name: GymStart
+  url: https://github.com/analaurafra/gymstart
+  description_key: content.projects.gymstart
+  description: Aplicação Python para gestão e acompanhamento de treinos na academia.
+  language: Python
+  tags: [Python, Backend]
+  featured: false
+  status: em-desenvolvimento
+
+- name: DocProjects
+  url: https://github.com/analaurafra/docprojects.github.io
+  description_key: content.projects.docprojects
+  description: GitHub Pages dedicado à documentação técnica detalhada de projetos.
+  language: CSS
+  tags: [Documentação, GitHub Pages, Jekyll]
+  featured: false
+  status: concluido
+
+- name: Bootcamp Avanade
+  url: https://github.com/analaurafra/docseries-avanadebootcamp
+  description_key: content.projects.avanade
+  description: Projeto de conclusão do Bootcamp Decola Tech 2ª Edição by Avanade.
+  language: C#
+  tags: [C#, Bootcamp, .NET]
+  featured: false
+  status: concluido
+
+- name: Docker do Básico ao Avançado
+  url: https://github.com/analaurafra/docker_do_basico_ao_avancado
+  description_key: content.projects.docker
+  description: Repositório de estudos e práticas com Docker — do básico ao avançado.
+  language: Dockerfile
+  tags: [Docker, DevOps]
+  featured: false
+  status: concluido
+
+- name: Bolt Project Customer
+  url: https://github.com/analaurafra/bolt_project_custumer
+  description_key: content.projects.bolt_customer
+  description: Aplicação TypeScript full-stack desenvolvida com Bolt.
+  language: TypeScript
+  tags: [TypeScript, Frontend]
+  featured: false
+  status: concluido
+
+- name: Bolt Landing Page
+  url: https://github.com/analaurafra/bolt_project_landingpage
+  description_key: content.projects.bolt_landing
+  description: Landing page responsiva construída com TypeScript e design moderno.
+  language: TypeScript
+  tags: [TypeScript, Frontend, UI]
+  featured: false
+  status: concluido
+
+- name: Dashboard Cursor
+  url: https://github.com/analaurafra/dashBoardCursor
+  description_key: content.projects.dashboard
+  description: Dashboard interativo desenvolvido em Python para visualização de dados.
+  language: Python
+  tags: [Python, Dashboard, Dados]
+  featured: false
+  status: concluido
+
+- name: AWS Developer Associate – Estudos
+  url: https://github.com/analaurafra/AWS_DeveloperAssociate_Estudos
+  description_key: content.projects.aws_studies
+  description: Repositório de estudos, labs e anotações para a certificação AWS Developer Associate.
+  language: Python
+  tags: [AWS, Cloud, Certificação]
+  featured: false
+  status: em-desenvolvimento
