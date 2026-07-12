@@ -11,12 +11,15 @@ layout: base
 
   {%- include home-highlights.html -%}
 
-  {%- assign doc_posts = site.posts
-    | where_exp: "p", "p.categories contains 'sql' or p.categories contains 'git' or p.categories contains 'aws' or p.categories contains 'java' or p.categories contains 'ia'"
-    | sort: "date"
-    | reverse -%}
+  {%- assign recent_docs = site.posts | sort: "date" | reverse -%}
+  {%- assign doc_count = 0 -%}
+  {%- for post in recent_docs -%}
+    {%- if post.categories contains 'sql' or post.categories contains 'git' or post.categories contains 'aws' or post.categories contains 'java' or post.categories contains 'ia' -%}
+      {%- assign doc_count = doc_count | plus: 1 -%}
+    {%- endif -%}
+  {%- endfor -%}
 
-  {%- if doc_posts.size > 0 -%}
+  {%- if doc_count > 0 -%}
     <section class="home-recent-docs">
       {%- if page.list_title -%}
         <h2 class="home-section-heading" data-i18n="home.recent_docs">{{ page.list_title | escape }}</h2>
@@ -24,27 +27,34 @@ layout: base
 
       <ol class="home-doc-list">
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        {%- for post in doc_posts limit: 6 -%}
-          {%- assign post_category = post.categories | first -%}
-          {%- assign category_label = post_category | upcase -%}
-          {%- for doc in site.data.navigation.docs -%}
-            {%- if doc.category == post_category -%}
-              {%- assign category_label = doc.title -%}
-            {%- endif -%}
-          {%- endfor -%}
-
-          <li class="home-doc-item">
-            <a class="home-doc-link" href="{{ post.url | relative_url }}">
-              <span class="home-doc-category">{{ category_label | escape }}</span>
-              <span class="home-doc-title">{{ post.title | escape }}</span>
-              {%- if post.excerpt -%}
-                <span class="home-doc-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</span>
+        {%- assign shown_docs = 0 -%}
+        {%- for post in recent_docs -%}
+          {%- if post.categories contains 'sql' or post.categories contains 'git' or post.categories contains 'aws' or post.categories contains 'java' or post.categories contains 'ia' -%}
+            {%- assign post_category = post.categories | first -%}
+            {%- assign category_label = post_category | upcase -%}
+            {%- for doc in site.data.navigation.docs -%}
+              {%- if doc.category == post_category -%}
+                {%- assign category_label = doc.title -%}
               {%- endif -%}
-            </a>
-            <time class="home-doc-date" datetime="{{ post.date | date_to_xmlschema }}">
-              {{ post.date | date: date_format }}
-            </time>
-          </li>
+            {%- endfor -%}
+
+            <li class="home-doc-item">
+              <a class="home-doc-link" href="{{ post.url | relative_url }}">
+                <span class="home-doc-category">{{ category_label | escape }}</span>
+                <span class="home-doc-title">{{ post.title | escape }}</span>
+                {%- if post.excerpt -%}
+                  <span class="home-doc-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</span>
+                {%- endif -%}
+              </a>
+              <time class="home-doc-date" datetime="{{ post.date | date_to_xmlschema }}">
+                {{ post.date | date: date_format }}
+              </time>
+            </li>
+            {%- assign shown_docs = shown_docs | plus: 1 -%}
+            {%- if shown_docs == 6 -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endif -%}
         {%- endfor -%}
       </ol>
     </section>
