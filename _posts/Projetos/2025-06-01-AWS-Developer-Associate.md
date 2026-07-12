@@ -47,8 +47,9 @@ Exemplos de Grupos: **Developers, DevOps, Admins, ReadOnly**
 - Usuário de uma conta AWS, que precisa acessar recursos de uma outra conta(**Cross Account**), via Access Role.
 - Usuário externos autenticados via Google ou Microsoft, utilizam o **Identity Federation** via Role. 
 
-|----|
+
 |**DICA DE OURO**|
+|----|
 |**NUNCA ARMAZENE UMA ACCESS KEY** em um código , configuração ou repositório público. Sempre use Roles IAM, para serviços como: AWS EC2, ECS, Lambda|
 
 
@@ -121,8 +122,9 @@ Permissões Especificas
 
 <br>
 
-|------|
+
 |**DICAS DA PROVA - AWS IAM**|
+|------|
 |1. Comece sem permissões e adicione quando necessário.|
 |2. User o **IAM Access Analyzer** para identificar permissões não usadas(remover).|
 |3. Revise periodicamente e remova permissões desnecessárias.|
@@ -202,8 +204,8 @@ aws sts get-caller-identity
 {% endhighlight %}
 
 
-|----|
 |**DICAS DA PROVA - AWS CLI:**|
+|----|
 |O sts será muito utilizado para debug|
 |**Há uma pasta oculta por padrão chamada .aws/, contém os arquivos:**|
 | `~/.aws/credentials`(Access Keys)|
@@ -413,8 +415,9 @@ exports.handler = async (event) => {
 <br>
 
 
-|----|
+
 |**DICAS DA PROVA**|
+|----|
 |**Lambda Padrão**:`lambda_function.lambda_handler(Python)` ou `index.handler(Node.js)`|
 
 
@@ -441,8 +444,9 @@ Propriedades úteis:
 - `get_remaining_time_in_millis()`
 
 
-|----|
+
 |**DICAS DA PROVA**|
+|----|
 |Use `context.get_remaining_time_in_millis()` para evitar timeout|
 
 
@@ -466,23 +470,234 @@ Python| Node.js|Java|.NET|Go|Ruby|Custom Runtime(bootstrap)
 
 - **Warm Start:** Invocações Subsequentes - Reusa Ambientes (mais rápido)
 
-|----|
+
 |**DICAS DA PROVA**|
+|----|
 |Mantenha **Conexões DB** fora do Handler para reutilização|
 |**Código fora do Handler (no escopo global) executa apenas o INIT**|
 |**Inicialização fora do Handler = executa 1x no cold start**|
 
 
-#### Criando minha primeira função Lambda
+## Criando minha primeira função Lambda
 
-Passo 00
+**Serverless = Sem gerenciamento de Servidores**
 
-Na console da AWS localize o microsserviço Lambda
+Você foca no código e a AWS foca na infraestrutura:
+
+- Provisionamento automático de recursos
+- Escalabilidade Automática (0 a Milhões de Instâncias)
+- Alta disponibilidade integrada
+- Pagamento apenas pelo uso ( Pay-per-Use)
+- Patches e manutenção gerenciado
 
 
-Passo 01
+#### Visão Geral do Lambda
 
-Lembre-se o **Lambda é event-driver, ou seja, só executa quando algo acontece**.
+O **AWS Lambda** é o serviço de  computação **Serverless** da AWS.
+
+***Sempre que foi perguntado sobre execução de código sem servidores, lembre-se do AWS Lambda***
+
+- **Execute o código sem gerenciar ou provisionar servidores**
+- Suporta múltiplas linguagens ( Python, Java, Node.js, Go, .Net, Ruby e etc)
+- **Executa códigos em resposta a eventos ( Event Driven Architecture)**
+- Escala automaticamente com a Demanda
+- **Paga por número de requests + Duração da Execução**
+
+
+> Event Source(S3, API,SQS...) -----> AWS Lambda(Seu Código) -----> Destination (DynamoDB,S3)
+
+
+#### Casos de Uso Comum
+
+**Apis Serverless**
+
+APIs Gateway + Lambda + DynamoDB
+
+- REST API sem servidores 
+- Escala automática por aquisição
+- Custo zero quando ocioso
+
+
+**Processamento de Dados**
+
+S3 Event --> AWS Lamdba --> Processamento
+
+- Redimensionar Imagens
+- Processar Arquivos CSV/JSON
+- ETL em tempo real ( Conforme demanda)
+
+
+|**Boas Práticas**|
+|----|
+|Mantenha funções focadas e pequenas|
+|Use variáveis de ambiente para configurações|
+|Habilite o X-Ray para tracing distribuído|
+|Configure timeout e memória adequados ao workload|
+
+<BR>
+
+#### Limites e Cótas - IMPORTANTE CAI MUITO NA PROVA
+
+|**Recurso**|**Limite** |**Observação** | 
+|----|---- |----|
+|**Timeout Máximo** | **15 minutos (900s)** |**CAI MUITO NA PROVA**|
+|**Memória** |**128 MB - 10.240 MB** |**CPU Proporciona a memória** |
+|**Package Size(zip)**|**50 MB zipped** |**250MB unzipped** |**User layers para Libs grandes**|
+|Storage/tmp|512 MB - 10.240 MB | Efêmero não persistente |
+|Concurrent Executions| 1000 (Defaut - Gratuitos/mês - Free Tier)| Pode solicitar Aumento ( Pago a parte) |
+
+
+> Lambda e Stateless cada invocação é realizada independemente
+> Storage/tml não persiste entre invocações diferente
+
+
+### Componentes da função Lambda
+
+Uma função lambda é composta por:
+
+ > **Função Lambda: Handler --> Runtime --> Deployment Package --> Configuração --> Exceution Role
+
+|****|**** |
+|----|---- |
+|**Handler** | Ponto de Entrada do Código ( Função que processa o Evento)
+|**Runtime** |Ambiente de Excecução (Python, Node.js,Java e etc)|
+|**Deployment Package**|Código + Dependências (Zip ou Container)|
+|**Configuração**|Memória,TimeOut,Variáveis de Ambiente|
+|**Execution Role**|Permissões IAM da função |
+
+
+### Aprofundando em Event e Context Object
+
+#### Handler: Ponto de Entrada
+
+O Handler é a **função** que o Lambda chama quando invocado.
+
+**Exemplo de formato de arquivos**: `arquivo.funcao`(`ìndex.handler`, `main.lambda_handler`)
+
+**Python `lambda.function.py`**
+
+```
+
+def lambda_handler(event, context): # recebe dois parâmetros
+
+# event: dados de entrada
+# context: info de  runtime
+
+name = event.get ('name', 'World')
+return {
+  'statusCode': 200,
+  'body': f'Hello {name}!'
+}
+
+```
+<br>
+
+
+**Node.js `index.js`**
+
+```
+
+exports.handler = async (event) =>{
+
+    // event: dados de entrada
+
+    const name = event.name || 'World';
+    return {
+    statusCode: 200,
+    body: 'Hello ${name}!'
+    },
+},    
+
+```
+
+<br>
+
+
+> Handler Padrão: lambda_function.lambda_handler(Pyhton) ou index.handler(Node.js)
+
+
+#### Explicando os: Events Context e o Event Object
+
+**Event Object**
+
+Dados de entrada da invocação
+
+Conteúdo varia por fonte:
+- API Gateway: headers, body, path
+- S3:Bucket, key, evento
+- SQS:Records com mensagens
+- Formato Json 
+
+
+**Context Object**
+
+Info do ambiente de execução
+
+Propriedade úteis:
+- `function_name`
+- `memory_limit_in_mb`
+- `aws_request_id`
+- `get_remaining_time_in_millis()`
+
+
+<br>
+
+|**DICAS DA PROVA**||
+|----|---|
+|**Use:**|`get_remaining_time_in_millis()` **para evitar timeout**| 
+|**Runtimes Disponíveis:** | Python, .NET,Java, Go, Ruby, Custom Runtime (bootstrap)
+
+
+#### Explicando o Ciclo de Vida da Execução Lambda
+
+> INIT --> INVOKE --> SHUTDOWN
+
+**INIT** 
+
+Ocorre apenas na primweira invocação
+
+- Download do Código
+- Inicializa Runtime
+- Executa Código Fora do Handler (Escopo Global)
+- **Cold Start**
+
+**INVOKE** 
+
+- Executa Handler
+- Processa Evento
+- Retoma resposta
+- **Warm Start(Reuso)**
+
+**Shutdown** 
+
+- Ociosidade
+- Destoy ENV
+- **~ 15 minutos sem uso o ambiente é destruído**
+
+#### Diferença entre Cold Start & Warm Start
+
+
+|||
+|----|---|
+|**Cold Start:**|Ocorre apenas na primeira invocação - Inclui a fase **INIT**(main lenta)| 
+|**Warm Start(quente)** |Invocações Subsequentes - **Reuso de ambientes** (mais rápido - Economiza Tempo e Dinheiro)|
+
+
+|**DICAS DA PROVA**| |
+|----|----|
+|**DICA 1**|**Mantenha conexões Banco de Dados(DB) FORA do Handler para utilização**|
+|**DICA 2**|**Código fora do Handler (no escopo global) executa apenas 1x o INIT**|
+
+
+
+
+
+
+
+
+
+
+
 
 
 
