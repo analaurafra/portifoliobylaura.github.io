@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "AWS - Developer Associate Certification"
-categories: junk
+categories: [aws]
+series_order: 1
 author:
 - Ana Laura Martins
 meta: "Springfield"

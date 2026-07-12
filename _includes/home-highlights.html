@@ -1,0 +1,28 @@
+<section class="home-highlights">
+  <div class="home-intro">
+    <h2 data-i18n="home.greeting">Olá, sou Ana Laura</h2>
+    <p data-i18n="home.intro">
+      Desenvolvedora junior apaixonada por backend, cloud e IA — construindo soluções digitais
+      com Java, Python, AWS e documentando cada passo do aprendizado.
+    </p>
+    <a class="home-highlight-link" href="{{ '/about/' | relative_url }}" data-i18n="home.profile_link">Conheça meu perfil &rarr;</a>
+  </div>
+
+  <div class="showcase-sections">
+    <section class="showcase-section">
+      <div class="showcase-section-header">
+        <h2 data-i18n="home.featured_projects">Projetos em destaque</h2>
+        <a class="showcase-section-link" href="{{ '/projetos/' | relative_url }}" data-i18n="home.all_projects">Ver todos os projetos &rarr;</a>
+      </div>
+      {%- include project-cards.html featured_only=true limit=3 -%}
+    </section>
+
+    <section class="showcase-section">
+      <div class="showcase-section-header">
+        <h2 data-i18n="home.certifications">Certificações e formações</h2>
+        <a class="showcase-section-link" href="{{ '/certificacoes/' | relative_url }}" data-i18n="home.all_certifications">Ver todas &rarr;</a>
+      </div>
+      {%- include certification-cards.html featured_only=true limit=2 -%}
+    </section>
+  </div>
+</section>

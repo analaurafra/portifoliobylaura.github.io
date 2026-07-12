@@ -1,0 +1,7 @@
+<nav class="top-nav" aria-label="Navegação principal">
+  {%- for item in site.data.navigation.header -%}
+    <a class="top-nav-link" href="{{ item.url | relative_url }}" data-i18n="{{ item.title_key }}">
+      {{ item.title | default: item.title_key | escape }}
+    </a>
+  {%- endfor -%}
+</nav>

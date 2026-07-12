@@ -1,6 +1,13 @@
-{% comment %}
-  Placeholder to allow defining custom head, in principle, you can add anything here, e.g. favicons:
-
-  1. Head over to https://realfavicongenerator.net/ to add your own favicons.
-  2. Customize default _includes/custom-head.html in your source directory and insert the given code snippet.
-{% endcomment %}
+<script>
+  (function () {
+    try {
+      var theme = localStorage.getItem("site-theme");
+      if (!theme) {
+        theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+      document.documentElement.setAttribute("data-theme", theme);
+      var lang = localStorage.getItem("site-lang");
+      if (lang) document.documentElement.setAttribute("lang", lang);
+    } catch (e) {}
+  })();
+</script>

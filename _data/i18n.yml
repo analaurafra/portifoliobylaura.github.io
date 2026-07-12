@@ -1,0 +1,411 @@
+pt-BR:
+  nav:
+    home: Início
+    projects: Projetos
+    certifications: Certificações
+    about: Sobre
+    menu: Menu
+    open_menu: Abrir menu lateral
+    docs: Documentação
+    docs_sql: SQL
+    docs_git: Git
+    docs_aws: AWS
+    docs_java: Java
+    docs_ia: IA Generativa
+    expand_articles: Expandir artigos de {title}
+  home:
+    greeting: Olá, sou Ana Laura
+    intro: Desenvolvedora junior apaixonada por backend, cloud e IA — construindo soluções digitais com Java, Python, AWS e documentando cada passo do aprendizado.
+    profile_link: Conheça meu perfil →
+    featured_projects: Projetos em destaque
+    all_projects: Ver todos os projetos →
+    certifications: Certificações e formações
+    all_certifications: Ver todas →
+    recent_docs: Documentação recente
+  post:
+    back_to: "← Voltar para {category}"
+    back_home: ← Voltar ao início
+    prev: ← Anterior
+    next: Próximo →
+    toc: Neste artigo
+    published: "Publicado:"
+    updated: "Atualizado:"
+    nav_aria: Navegação do artigo
+    view_notes: Ver anotações
+  about:
+    role: Desenvolvedora de Software Junior · Brasil
+    summary: Estudando e praticando soluções digitais com foco em backend, cloud e inteligência artificial. Construo APIs, experimento com arquiteturas serverless na AWS e documento meus aprendizados de forma aberta neste portfólio.
+    what_i_do_title: O que faço
+    what_i_do: Sou desenvolvedora em formação, com trajetória prática em projetos de API REST, estudos de cloud computing e experimentos com IA generativa. Gosto de transformar o que aprendo em código versionado, documentação técnica e projetos que posso compartilhar publicamente.
+    stack_title: Stack e interesses
+    backend: Backend
+    cloud: Cloud & DevOps
+    data_ai: Dados & IA
+    frontend: Frontend & outros
+    portfolio_title: Neste portfólio
+    portfolio_projects: "vitrine dos repositórios no GitHub"
+    portfolio_certs: "trilha profissional e formações"
+    portfolio_docs: "anotações técnicas de SQL, Git, AWS, Java e IA"
+    focus_title: Em foco agora
+    focus_aws: Certificação AWS Certified Developer – Associate
+    focus_medvoll: Projeto Med Voll API — gestão médica com Spring Boot
+    focus_rag: Experimentos com RAG e LLMs via FastAPI
+  pages:
+    projects_title: Projetos
+    projects_desc: Vitrine de projetos open source e repositórios de estudo no GitHub.
+    projects_intro: Repositórios selecionados que representam minha prática com backend, cloud, IA e desenvolvimento web.
+    projects_github: Mais repositórios em
+    certifications_title: Certificações
+    certifications_desc: Certificações profissionais, bootcamps e formações concluídas ou em andamento.
+    certifications_intro: Trilha de certificações e formações que complementam meus estudos práticos.
+    category_empty: Nenhum artigo publicado nesta categoria ainda.
+  docs:
+    sql_desc: Trilha de estudos de SQL — do básico ao intermediário.
+    git_desc: Anotações sobre controle de versão com Git.
+    aws_desc: Notas da certificação AWS Developer Associate.
+    java_desc: Projetos e anotações com Java, Spring Boot e API REST.
+    ia_desc: Fundamentos de IA generativa com AWS Bedrock.
+  status:
+    completed: Concluído
+    completed_f: Concluída
+    in_progress: Em desenvolvimento
+    in_preparation: Em preparação
+    expired: Expirada
+  common:
+    back_home: ← Voltar ao início
+    featured: Destaque
+    view_github: Ver no GitHub →
+    view_credential: Ver credencial →
+    back_top: Voltar ao topo
+  content:
+    projects:
+      med_voll: API REST para gestão médica — CRM de profissionais da saúde com Java 21 e Spring Boot 3.
+      ecommerce_aws: E-commerce serverless com TypeScript, AWS CDK, Lambda e arquitetura cloud-native.
+      rag_fastapi: Pipeline RAG completo — FastAPI, Vector DB, recuperação de contexto e respostas via LLM.
+      fastapi_openai: Experimentos com APIs de IA e integração com LLMs via FastAPI.
+      gymstart: Aplicação Python para gestão e acompanhamento de treinos na academia.
+      docprojects: GitHub Pages dedicado à documentação técnica detalhada de projetos.
+      avanade: Projeto de conclusão do Bootcamp Decola Tech 2ª Edição by Avanade.
+      docker: Repositório de estudos e práticas com Docker — do básico ao avançado.
+      bolt_customer: Aplicação TypeScript full-stack desenvolvida com Bolt.
+      bolt_landing: Landing page responsiva construída com TypeScript e design moderno.
+      dashboard: Dashboard interativo desenvolvido em Python para visualização de dados.
+      aws_studies: Repositório de estudos, labs e anotações para a certificação AWS Developer Associate.
+    certs:
+      aws_developer: Preparação para certificação com foco em serverless, IAM, Lambda, DynamoDB, S3, API Gateway e boas práticas na AWS.
+      bedrock_ia: Bootcamp imersivo sobre IA generativa — Bedrock, SageMaker, PartyRock e aplicações práticas com serviços AWS.
+      decola: Projeto de conclusão do bootcamp Decola Tech com foco em desenvolvimento .NET e C#.
+  prefs:
+    lang_aria: Selecionar idioma
+    theme_aria: Alternar tema claro/escuro
+    theme_light: Tema claro
+    theme_dark: Tema escuro
+
+en:
+  nav:
+    home: Home
+    projects: Projects
+    certifications: Certifications
+    about: About
+    menu: Menu
+    open_menu: Open sidebar menu
+    docs: Documentation
+    docs_sql: SQL
+    docs_git: Git
+    docs_aws: AWS
+    docs_java: Java
+    docs_ia: Generative AI
+    expand_articles: Expand articles in {title}
+  home:
+    greeting: Hi, I'm Ana Laura
+    intro: Junior developer passionate about backend, cloud, and AI — building digital solutions with Java, Python, and AWS while documenting every step of my learning journey.
+    profile_link: View my profile →
+    featured_projects: Featured projects
+    all_projects: View all projects →
+    certifications: Certifications & training
+    all_certifications: View all →
+    recent_docs: Recent documentation
+  post:
+    back_to: "← Back to {category}"
+    back_home: ← Back to home
+    prev: ← Previous
+    next: Next →
+    toc: On this page
+    published: "Published:"
+    updated: "Updated:"
+    nav_aria: Article navigation
+    view_notes: View notes
+  about:
+    role: Junior Software Developer · Brazil
+    summary: Studying and building digital solutions focused on backend, cloud, and artificial intelligence. I build APIs, experiment with serverless architectures on AWS, and openly document my learning in this portfolio.
+    what_i_do_title: What I do
+    what_i_do: I'm a developer in training with hands-on experience in REST API projects, cloud computing studies, and generative AI experiments. I turn what I learn into versioned code, technical documentation, and shareable projects.
+    stack_title: Stack & interests
+    backend: Backend
+    cloud: Cloud & DevOps
+    data_ai: Data & AI
+    frontend: Frontend & more
+    portfolio_title: In this portfolio
+    portfolio_projects: "showcase of GitHub repositories"
+    portfolio_certs: "professional track and training"
+    portfolio_docs: "technical notes on SQL, Git, AWS, Java, and AI"
+    focus_title: Current focus
+    focus_aws: AWS Certified Developer – Associate certification
+    focus_medvoll: Med Voll API project — healthcare management with Spring Boot
+    focus_rag: RAG and LLM experiments with FastAPI
+  pages:
+    projects_title: Projects
+    projects_desc: Showcase of open source projects and study repositories on GitHub.
+    projects_intro: Selected repositories representing my work in backend, cloud, AI, and web development.
+    projects_github: More repositories at
+    certifications_title: Certifications
+    certifications_desc: Professional certifications, bootcamps, and completed or ongoing training.
+    certifications_intro: Certification and training track complementing my practical studies.
+    category_empty: No articles published in this category yet.
+  docs:
+    sql_desc: SQL study track — from basics to intermediate.
+    git_desc: Notes on version control with Git.
+    aws_desc: AWS Developer Associate certification notes.
+    java_desc: Projects and notes with Java, Spring Boot, and REST API.
+    ia_desc: Generative AI fundamentals with AWS Bedrock.
+  status:
+    completed: Completed
+    completed_f: Completed
+    in_progress: In development
+    in_preparation: In preparation
+    expired: Expired
+  common:
+    back_home: ← Back to home
+    featured: Featured
+    view_github: View on GitHub →
+    view_credential: View credential →
+    back_top: Back to top
+  content:
+    projects:
+      med_voll: REST API for healthcare management — CRM for health professionals with Java 21 and Spring Boot 3.
+      ecommerce_aws: Serverless e-commerce with TypeScript, AWS CDK, Lambda, and cloud-native architecture.
+      rag_fastapi: Full RAG pipeline — FastAPI, Vector DB, context retrieval, and LLM-powered responses.
+      fastapi_openai: AI API experiments and LLM integration with FastAPI.
+      gymstart: Python app for gym workout tracking and management.
+      docprojects: GitHub Pages site for detailed technical project documentation.
+      avanade: Final project for the Decola Tech 2nd Edition Bootcamp by Avanade.
+      docker: Study repository and Docker practices — from basics to advanced.
+      bolt_customer: Full-stack TypeScript application built with Bolt.
+      bolt_landing: Responsive landing page built with TypeScript and modern design.
+      dashboard: Interactive Python dashboard for data visualization.
+      aws_studies: Study repository, labs, and notes for AWS Developer Associate certification.
+    certs:
+      aws_developer: Certification preparation focused on serverless, IAM, Lambda, DynamoDB, S3, API Gateway, and AWS best practices.
+      bedrock_ia: Immersive generative AI bootcamp — Bedrock, SageMaker, PartyRock, and practical AWS services.
+      decola: Decola Tech bootcamp final project focused on .NET and C# development.
+  prefs:
+    lang_aria: Select language
+    theme_aria: Toggle light/dark theme
+    theme_light: Light theme
+    theme_dark: Dark theme
+
+de:
+  nav:
+    home: Startseite
+    projects: Projekte
+    certifications: Zertifizierungen
+    about: Über mich
+    menu: Menü
+    open_menu: Seitenmenü öffnen
+    docs: Dokumentation
+    docs_sql: SQL
+    docs_git: Git
+    docs_aws: AWS
+    docs_java: Java
+    docs_ia: Generative KI
+    expand_articles: Artikel in {title} erweitern
+  home:
+    greeting: Hallo, ich bin Ana Laura
+    intro: Junior-Entwicklerin mit Leidenschaft für Backend, Cloud und KI — ich entwickle digitale Lösungen mit Java, Python und AWS und dokumentiere jeden Schritt meines Lernens.
+    profile_link: Mein Profil ansehen →
+    featured_projects: Ausgewählte Projekte
+    all_projects: Alle Projekte ansehen →
+    certifications: Zertifizierungen & Schulungen
+    all_certifications: Alle ansehen →
+    recent_docs: Aktuelle Dokumentation
+  post:
+    back_to: "← Zurück zu {category}"
+    back_home: ← Zurück zur Startseite
+    prev: ← Zurück
+    next: Weiter →
+    toc: In diesem Artikel
+    published: "Veröffentlicht:"
+    updated: "Aktualisiert:"
+    nav_aria: Artikelnavigation
+    view_notes: Notizen ansehen
+  about:
+    role: Junior Softwareentwicklerin · Brasilien
+    summary: Ich lerne und entwickle digitale Lösungen mit Fokus auf Backend, Cloud und künstliche Intelligenz. Ich baue APIs, experimentiere mit serverlosen AWS-Architekturen und dokumentiere mein Lernen offen in diesem Portfolio.
+    what_i_do_title: Was ich mache
+    what_i_do: Ich bin Entwicklerin in Ausbildung mit praktischer Erfahrung in REST-API-Projekten, Cloud-Computing und generativer KI. Ich verwandle Gelerntes in versionierten Code, technische Dokumentation und teilbare Projekte.
+    stack_title: Stack & Interessen
+    backend: Backend
+    cloud: Cloud & DevOps
+    data_ai: Daten & KI
+    frontend: Frontend & mehr
+    portfolio_title: In diesem Portfolio
+    portfolio_projects: "GitHub-Repositories"
+    portfolio_certs: "beruflicher Werdegang und Schulungen"
+    portfolio_docs: "technische Notizen zu SQL, Git, AWS, Java und KI"
+    focus_title: Aktueller Fokus
+    focus_aws: AWS Certified Developer – Associate Zertifizierung
+    focus_medvoll: Med Voll API Projekt — medizinische Verwaltung mit Spring Boot
+    focus_rag: RAG- und LLM-Experimente mit FastAPI
+  pages:
+    projects_title: Projekte
+    projects_desc: Ausstellung von Open-Source-Projekten und Lern-Repositories auf GitHub.
+    projects_intro: Ausgewählte Repositories für Backend, Cloud, KI und Webentwicklung.
+    projects_github: Weitere Repositories auf
+    certifications_title: Zertifizierungen
+    certifications_desc: Berufliche Zertifizierungen, Bootcamps und abgeschlossene oder laufende Schulungen.
+    certifications_intro: Zertifizierungs- und Schulungspfad ergänzend zu meinen praktischen Studien.
+    category_empty: Noch keine Artikel in dieser Kategorie veröffentlicht.
+  docs:
+    sql_desc: SQL-Lernpfad — von Grundlagen bis Fortgeschritten.
+    git_desc: Notizen zur Versionskontrolle mit Git.
+    aws_desc: Notizen zur AWS Developer Associate Zertifizierung.
+    java_desc: Projekte und Notizen mit Java, Spring Boot und REST API.
+    ia_desc: Grundlagen generativer KI mit AWS Bedrock.
+  status:
+    completed: Abgeschlossen
+    completed_f: Abgeschlossen
+    in_progress: In Entwicklung
+    in_preparation: In Vorbereitung
+    expired: Abgelaufen
+  common:
+    back_home: ← Zurück zur Startseite
+    featured: Highlight
+    view_github: Auf GitHub ansehen →
+    view_credential: Zertifikat ansehen →
+    back_top: Nach oben
+  content:
+    projects:
+      med_voll: REST-API für medizinische Verwaltung — CRM für Gesundheitsfachkräfte mit Java 21 und Spring Boot 3.
+      ecommerce_aws: Serverless E-Commerce mit TypeScript, AWS CDK, Lambda und Cloud-nativer Architektur.
+      rag_fastapi: Vollständige RAG-Pipeline — FastAPI, Vector DB, Kontextabruf und LLM-Antworten.
+      fastapi_openai: KI-API-Experimente und LLM-Integration mit FastAPI.
+      gymstart: Python-App zur Verwaltung und Nachverfolgung von Fitnesstraining.
+      docprojects: GitHub Pages für detaillierte technische Projektdokumentation.
+      avanade: Abschlussprojekt des Decola Tech Bootcamps 2. Auflage von Avanade.
+      docker: Lern-Repository und Docker-Übungen — von Grundlagen bis Fortgeschritten.
+      bolt_customer: Full-Stack TypeScript-Anwendung mit Bolt.
+      bolt_landing: Responsive Landing Page mit TypeScript und modernem Design.
+      dashboard: Interaktives Python-Dashboard zur Datenvisualisierung.
+      aws_studies: Lern-Repository, Labs und Notizen für AWS Developer Associate.
+    certs:
+      aws_developer: Vorbereitung auf die Zertifizierung mit Fokus auf Serverless, IAM, Lambda, DynamoDB, S3, API Gateway und AWS Best Practices.
+      bedrock_ia: Immersives Bootcamp zu generativer KI — Bedrock, SageMaker, PartyRock und praktische AWS-Dienste.
+      decola: Abschlussprojekt des Decola Tech Bootcamps mit Fokus auf .NET- und C#-Entwicklung.
+  prefs:
+    lang_aria: Sprache wählen
+    theme_aria: Hell/Dunkel-Modus umschalten
+    theme_light: Helles Theme
+    theme_dark: Dunkles Theme
+
+es:
+  nav:
+    home: Inicio
+    projects: Proyectos
+    certifications: Certificaciones
+    about: Sobre mí
+    menu: Menú
+    open_menu: Abrir menú lateral
+    docs: Documentación
+    docs_sql: SQL
+    docs_git: Git
+    docs_aws: AWS
+    docs_java: Java
+    docs_ia: IA Generativa
+    expand_articles: Expandir artículos de {title}
+  home:
+    greeting: Hola, soy Ana Laura
+    intro: Desarrolladora junior apasionada por backend, cloud e IA — construyo soluciones digitales con Java, Python y AWS documentando cada paso del aprendizaje.
+    profile_link: Conoce mi perfil →
+    featured_projects: Proyectos destacados
+    all_projects: Ver todos los proyectos →
+    certifications: Certificaciones y formaciones
+    all_certifications: Ver todas →
+    recent_docs: Documentación reciente
+  post:
+    back_to: "← Volver a {category}"
+    back_home: ← Volver al inicio
+    prev: ← Anterior
+    next: Siguiente →
+    toc: En este artículo
+    published: "Publicado:"
+    updated: "Actualizado:"
+    nav_aria: Navegación del artículo
+    view_notes: Ver apuntes
+  about:
+    role: Desarrolladora de Software Junior · Brasil
+    summary: Estudio y practico soluciones digitales con enfoque en backend, cloud e inteligencia artificial. Construyo APIs, experimento con arquitecturas serverless en AWS y documento abiertamente mi aprendizaje en este portafolio.
+    what_i_do_title: Qué hago
+    what_i_do: Soy desarrolladora en formación con experiencia práctica en proyectos de API REST, estudios de cloud computing y experimentos con IA generativa. Transformo lo aprendido en código versionado, documentación técnica y proyectos compartibles.
+    stack_title: Stack e intereses
+    backend: Backend
+    cloud: Cloud & DevOps
+    data_ai: Datos & IA
+    frontend: Frontend y más
+    portfolio_title: En este portafolio
+    portfolio_projects: "vitrina de repositorios en GitHub"
+    portfolio_certs: "trayectoria profesional y formaciones"
+    portfolio_docs: "apuntes técnicos de SQL, Git, AWS, Java e IA"
+    focus_title: En foco ahora
+    focus_aws: Certificación AWS Certified Developer – Associate
+    focus_medvoll: Proyecto Med Voll API — gestión médica con Spring Boot
+    focus_rag: Experimentos con RAG y LLMs vía FastAPI
+  pages:
+    projects_title: Proyectos
+    projects_desc: Vitrina de proyectos open source y repositorios de estudio en GitHub.
+    projects_intro: Repositorios seleccionados que representan mi práctica en backend, cloud, IA y desarrollo web.
+    projects_github: Más repositorios en
+    certifications_title: Certificaciones
+    certifications_desc: Certificaciones profesionales, bootcamps y formaciones concluidas o en curso.
+    certifications_intro: Trayectoria de certificaciones y formaciones que complementan mis estudios prácticos.
+    category_empty: Ningún artículo publicado en esta categoría aún.
+  docs:
+    sql_desc: Ruta de estudio de SQL — de básico a intermedio.
+    git_desc: Apuntes sobre control de versiones con Git.
+    aws_desc: Notas de la certificación AWS Developer Associate.
+    java_desc: Proyectos y apuntes con Java, Spring Boot y API REST.
+    ia_desc: Fundamentos de IA generativa con AWS Bedrock.
+  status:
+    completed: Concluido
+    completed_f: Concluida
+    in_progress: En desarrollo
+    in_preparation: En preparación
+    expired: Expirada
+  common:
+    back_home: ← Volver al inicio
+    featured: Destacado
+    view_github: Ver en GitHub →
+    view_credential: Ver credencial →
+    back_top: Volver arriba
+  content:
+    projects:
+      med_voll: API REST para gestión médica — CRM de profesionales de salud con Java 21 y Spring Boot 3.
+      ecommerce_aws: E-commerce serverless con TypeScript, AWS CDK, Lambda y arquitectura cloud-native.
+      rag_fastapi: Pipeline RAG completo — FastAPI, Vector DB, recuperación de contexto y respuestas via LLM.
+      fastapi_openai: Experimentos con APIs de IA e integración con LLMs via FastAPI.
+      gymstart: Aplicación Python para gestión y seguimiento de entrenamientos en el gimnasio.
+      docprojects: GitHub Pages dedicado a documentación técnica detallada de proyectos.
+      avanade: Proyecto final del Bootcamp Decola Tech 2ª Edición by Avanade.
+      docker: Repositorio de estudios y prácticas con Docker — de básico a avanzado.
+      bolt_customer: Aplicación TypeScript full-stack desarrollada con Bolt.
+      bolt_landing: Landing page responsiva construida con TypeScript y diseño moderno.
+      dashboard: Dashboard interactivo en Python para visualización de datos.
+      aws_studies: Repositorio de estudios, labs y apuntes para la certificación AWS Developer Associate.
+    certs:
+      aws_developer: Preparación para certificación con enfoque en serverless, IAM, Lambda, DynamoDB, S3, API Gateway y buenas prácticas en AWS.
+      bedrock_ia: Bootcamp inmersivo sobre IA generativa — Bedrock, SageMaker, PartyRock y servicios AWS prácticos.
+      decola: Proyecto final del bootcamp Decola Tech con enfoque en desarrollo .NET y C#.
+  prefs:
+    lang_aria: Seleccionar idioma
+    theme_aria: Alternar tema claro/oscuro
+    theme_light: Tema claro
+    theme_dark: Tema oscuro

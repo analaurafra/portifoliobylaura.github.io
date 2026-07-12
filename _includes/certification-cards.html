@@ -1,0 +1,84 @@
+{%- assign certifications = include.certifications | default: site.data.certifications -%}
+{%- if include.featured_only -%}
+  {%- assign certifications = certifications | where_exp: "item", "item.featured == true" | sort: "featured_order" -%}
+{%- elsif include.others_only -%}
+  {%- assign certifications = certifications | where_exp: "item", "item.featured != true" -%}
+{%- else -%}
+  {%- assign featured_certs = certifications | where_exp: "item", "item.featured == true" | sort: "featured_order" -%}
+  {%- assign other_certs = certifications | where_exp: "item", "item.featured != true" -%}
+  {%- assign certifications = featured_certs | concat: other_certs -%}
+{%- endif -%}
+{%- assign limit = include.limit | default: 999 -%}
+{%- assign count = 0 -%}
+
+<div class="showcase-grid certification-grid">
+  {%- for cert in certifications -%}
+    {%- if count >= limit -%}
+      {%- break -%}
+    {%- endif -%}
+    {%- assign count = count | plus: 1 -%}
+
+    <article class="showcase-card certification-card">
+      {%- if cert.badge -%}
+        <div class="certification-badge-wrap">
+          <img
+            class="certification-badge"
+            src="{{ cert.badge | relative_url }}"
+            alt="Badge: {{ cert.name | escape }}"
+            width="96"
+            height="96"
+            loading="lazy"
+          />
+        </div>
+      {%- endif -%}
+
+      <div class="certification-card-body">
+        <header class="showcase-card-header">
+          <h3 class="showcase-card-title">{{ cert.name | escape }}</h3>
+          {%- if cert.status -%}
+            <span class="showcase-badge showcase-status-{{ cert.status }}" data-i18n-status="{{ cert.status }}">
+              {%- case cert.status -%}
+                {%- when "concluida" -%}Concluída
+                {%- when "em-preparacao" -%}Em preparação
+                {%- when "expirada" -%}Expirada
+                {%- else -%}{{ cert.status | escape }}
+              {%- endcase -%}
+            </span>
+          {%- endif -%}
+        </header>
+
+        <p class="showcase-card-issuer">{{ cert.issuer | escape }}</p>
+        <p class="showcase-card-description"{% if cert.description_key %} data-i18n="{{ cert.description_key }}"{% endif %}>{{ cert.description | escape }}</p>
+
+        {%- if cert.tags.size > 0 -%}
+          <ul class="showcase-tags">
+            {%- for tag in cert.tags -%}
+              <li class="showcase-tag">{{ tag | escape }}</li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+
+        <footer class="showcase-card-footer">
+          {%- if cert.date -%}
+            <span class="showcase-meta">{{ cert.date | escape }}</span>
+          {%- endif -%}
+          {%- if cert.credential_id -%}
+            <span class="showcase-meta">ID: {{ cert.credential_id | escape }}</span>
+          {%- endif -%}
+          <div class="showcase-card-actions">
+            {%- if cert.credential_url -%}
+              <a class="showcase-card-link" href="{{ cert.credential_url }}" target="_blank" rel="noopener noreferrer" data-i18n="common.view_credential">
+                Ver credencial &rarr;
+              </a>
+            {%- endif -%}
+            {%- if cert.related_doc -%}
+              <a class="showcase-card-link showcase-card-link-secondary" href="{{ cert.related_doc | relative_url }}" data-i18n="post.view_notes">
+                Ver anotações
+              </a>
+            {%- endif -%}
+          </div>
+        </footer>
+      </div>
+    </article>
+  {%- endfor -%}
+</div>

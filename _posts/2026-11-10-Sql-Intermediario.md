@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "SQL Intermediário"
-categories: junk
+categories: [sql]
+series_order: 2
 author:
 - Ana Laura Martins
 meta: "Springfield"

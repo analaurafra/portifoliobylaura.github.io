@@ -1,0 +1,71 @@
+{%- assign cat = page.categories | first -%}
+{%- assign cat_posts = site.posts
+  | where_exp: "p", "p.categories contains cat"
+  | sort: "series_order" -%}
+
+{%- assign category_url = nil -%}
+{%- assign category_title = nil -%}
+{%- assign category_title_key = nil -%}
+{%- for doc in site.data.navigation.docs -%}
+  {%- if doc.category == cat -%}
+    {%- assign category_url = doc.url -%}
+    {%- assign category_title = doc.title -%}
+    {%- assign category_title_key = doc.title_key -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign current_index = nil -%}
+{%- for p in cat_posts -%}
+  {%- if p.url == page.url -%}
+    {%- assign current_index = forloop.index0 -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign prev_post = nil -%}
+{%- assign next_post = nil -%}
+{%- if current_index != nil -%}
+  {%- assign prev_index = current_index | minus: 1 -%}
+  {%- assign next_index = current_index | plus: 1 -%}
+  {%- for p in cat_posts -%}
+    {%- if forloop.index0 == prev_index -%}
+      {%- assign prev_post = p -%}
+    {%- endif -%}
+    {%- if forloop.index0 == next_index -%}
+      {%- assign next_post = p -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endif -%}
+
+<nav class="post-navigation post-navigation-{{ include.position | default: 'bottom' }}" data-i18n-aria="post.nav_aria" aria-label="Navegação do artigo">
+  <div class="post-navigation-back">
+    {%- if category_url -%}
+      <a class="post-nav-btn post-nav-back" href="{{ category_url | relative_url }}" data-i18n="post.back_to" data-i18n-category-key="{{ category_title_key }}">
+        &larr; Voltar para {{ category_title | escape }}
+      </a>
+    {%- else -%}
+      <a class="post-nav-btn post-nav-back" href="{{ '/' | relative_url }}" data-i18n="post.back_home">
+        &larr; Voltar ao início
+      </a>
+    {%- endif -%}
+  </div>
+
+  <div class="post-navigation-steps">
+    {%- if prev_post -%}
+      <a class="post-nav-btn post-nav-prev" href="{{ prev_post.url | relative_url }}" title="{{ prev_post.title | escape }}">
+        <span class="post-nav-label" data-i18n="post.prev">&larr; Anterior</span>
+        <span class="post-nav-title">{{ prev_post.title | escape }}</span>
+      </a>
+    {%- else -%}
+      <span class="post-nav-btn post-nav-prev is-disabled" aria-hidden="true"></span>
+    {%- endif -%}
+
+    {%- if next_post -%}
+      <a class="post-nav-btn post-nav-next" href="{{ next_post.url | relative_url }}" title="{{ next_post.title | escape }}">
+        <span class="post-nav-label" data-i18n="post.next">Próximo &rarr;</span>
+        <span class="post-nav-title">{{ next_post.title | escape }}</span>
+      </a>
+    {%- else -%}
+      <span class="post-nav-btn post-nav-next is-disabled" aria-hidden="true"></span>
+    {%- endif -%}
+  </div>
+</nav>

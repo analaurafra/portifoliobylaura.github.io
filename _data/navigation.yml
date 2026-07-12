@@ -1,0 +1,38 @@
+header:
+  - title_key: nav.home
+    url: /
+  - title_key: nav.about
+    url: /about/
+
+sidebar:
+  - title_key: nav.projects
+    url: /projetos/
+  - title_key: nav.certifications
+    url: /certificacoes/
+
+docs:
+  - title: SQL
+    title_key: nav.docs_sql
+    category: sql
+    url: /documentacao/sql/
+    description_key: docs.sql_desc
+  - title: Git
+    title_key: nav.docs_git
+    category: git
+    url: /documentacao/git/
+    description_key: docs.git_desc
+  - title: AWS
+    title_key: nav.docs_aws
+    category: aws
+    url: /documentacao/aws/
+    description_key: docs.aws_desc
+  - title: Java
+    title_key: nav.docs_java
+    category: java
+    url: /documentacao/java/
+    description_key: docs.java_desc
+  - title: IA Generativa
+    title_key: nav.docs_ia
+    category: ia
+    url: /documentacao/ia/
+    description_key: docs.ia_desc

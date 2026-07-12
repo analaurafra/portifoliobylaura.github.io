@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Fundamentos de IA Generativa com AWS Bedrock">
+  <defs>
+    <linearGradient id="ia-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a2744"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="12" fill="url(#ia-bg)"/>
+  <rect x="10" y="10" width="100" height="100" rx="8" fill="none" stroke="#2aa198" stroke-width="2"/>
+  <text x="60" y="34" text-anchor="middle" fill="#2aa198" font-family="Arial, sans-serif" font-size="10" font-weight="700">AWS BEDROCK</text>
+  <text x="60" y="54" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="11" font-weight="700">IA Generativa</text>
+  <text x="60" y="70" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="10" font-weight="600">Fundamentos</text>
+  <circle cx="60" cy="90" r="8" fill="none" stroke="#2aa198" stroke-width="2"/>
+  <circle cx="60" cy="90" r="3" fill="#2aa198"/>
+</svg>

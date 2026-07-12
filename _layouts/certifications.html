@@ -1,0 +1,34 @@
+---
+layout: base
+---
+<div class="showcase-page">
+  <header class="showcase-header">
+    <a class="back-link" href="{{ '/' | relative_url }}" data-i18n="common.back_home">&larr; Voltar ao início</a>
+    <h1 class="page-heading" data-i18n="pages.certifications_title">Certificações</h1>
+    <p class="showcase-page-description" data-i18n="pages.certifications_desc">Certificações profissionais, bootcamps e formações concluídas ou em andamento.</p>
+  </header>
+
+  <p data-i18n="pages.certifications_intro">Trilha de certificações e formações que complementam meus estudos práticos.</p>
+
+  {%- assign other_certifications = site.data.certifications | where_exp: "item", "item.featured != true" -%}
+
+  <div class="showcase-sections">
+    <section class="showcase-section">
+      <div class="showcase-section-header">
+        <h2 data-i18n="home.certifications">Certificações e formações</h2>
+      </div>
+      {%- include certification-cards.html featured_only=true -%}
+    </section>
+
+    {%- if other_certifications.size > 0 -%}
+      <section class="showcase-section">
+        <div class="showcase-section-header">
+          <h2 data-i18n="pages.other_certifications">Outras formações</h2>
+        </div>
+        {%- include certification-cards.html others_only=true -%}
+      </section>
+    {%- endif -%}
+  </div>
+
+  {{ content }}
+</div>

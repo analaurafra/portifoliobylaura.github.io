@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "SQL - Introdução"
-categories: junk
+categories: [sql]
+series_order: 1
 author:
 - Ana Laura Martins
 meta: "Springfield"

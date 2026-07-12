@@ -4,64 +4,49 @@ layout: base
 
 <div class="home">
   {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+    <h1 class="page-heading">{{ page.title | escape }}</h1>
   {%- endif -%}
 
   {{ content }}
 
+  {%- include home-highlights.html -%}
 
-  {% if site.paginate %}
-    {% assign posts = paginator.posts %}
-  {% else %}
-    {% assign posts = site.posts %}
-  {% endif %}
+  {%- assign doc_posts = site.posts
+    | where_exp: "p", "p.categories contains 'sql' or p.categories contains 'git' or p.categories contains 'aws' or p.categories contains 'java' or p.categories contains 'ia'"
+    | sort: "date"
+    | reverse -%}
 
+  {%- if doc_posts.size > 0 -%}
+    <section class="home-recent-docs">
+      {%- if page.list_title -%}
+        <h2 class="home-section-heading" data-i18n="home.recent_docs">{{ page.list_title | escape }}</h2>
+      {%- endif -%}
 
-  {%- if posts.size > 0 -%}
-    {%- if page.list_title -%}
-      <h2 class="post-list-heading">{{ page.list_title }}</h2>
-    {%- endif -%}
-    <ul class="post-list">
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {%- for post in posts -%}
-      <li>
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.minima.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
+      <ol class="home-doc-list">
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {%- for post in doc_posts limit: 6 -%}
+          {%- assign post_category = post.categories | first -%}
+          {%- assign category_label = post_category | upcase -%}
+          {%- for doc in site.data.navigation.docs -%}
+            {%- if doc.category == post_category -%}
+              {%- assign category_label = doc.title -%}
+            {%- endif -%}
+          {%- endfor -%}
 
-    {% if site.paginate %}
-      <div class="pager">
-        <ul class="pagination">
-        {%- if paginator.previous_page %}
-          <li>
-            <a href="{{ paginator.previous_page_path | relative_url }}" class="previous-page" title="Go to Page {{ paginator.previous_page }}">
-              {{ paginator.previous_page }}
+          <li class="home-doc-item">
+            <a class="home-doc-link" href="{{ post.url | relative_url }}">
+              <span class="home-doc-category">{{ category_label | escape }}</span>
+              <span class="home-doc-title">{{ post.title | escape }}</span>
+              {%- if post.excerpt -%}
+                <span class="home-doc-excerpt">{{ post.excerpt | strip_html | truncate: 120 }}</span>
+              {%- endif -%}
             </a>
+            <time class="home-doc-date" datetime="{{ post.date | date_to_xmlschema }}">
+              {{ post.date | date: date_format }}
+            </time>
           </li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-          <li><div class="current-page">{{ paginator.page }}</div></li>
-        {%- if paginator.next_page %}
-          <li>
-            <a href="{{ paginator.next_page_path | relative_url }}" class="next-page" title="Go to Page {{ paginator.next_page }}">
-              {{ paginator.next_page }}
-            </a>
-          </li>
-        {%- else %}
-          <li><div class="pager-edge">•</div></li>
-        {%- endif %}
-        </ul>
-      </div>
-    {%- endif %}
+        {%- endfor -%}
+      </ol>
+    </section>
   {%- endif -%}
 </div>
