@@ -878,7 +878,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
 <br>
 <br>
 
-<img src="{{ '/assets/img/img_116.png' | relative_url }}" alt="img_116" width="500" height="auto" />
+<img src="{{ '/assets/img/img_116.gif' | relative_url }}" alt="img_116" width="500" height="auto" />
 <br>
 <br>
 
@@ -916,7 +916,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão a seguir iremos criar um teste para verificar a performance 
 
-<img src="{{ '/assets/img/img_122.png' | relative_url }}" alt="img_122" width="500" height="auto" />
+<img src="{{ '/assets/img/img_122.gif' | relative_url }}" alt="img_122" width="500" height="auto" />
 <br>
 <br>
 
