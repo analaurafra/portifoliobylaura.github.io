@@ -16,7 +16,7 @@ Anotações, insigts e mais sobre a certificação Developer Associate AWS.
 
 ### AWS IAM - Identity and Access Management
 
-Serviço global que controle quem pode fazer o quê na AWS na sua conta AWS,o qual possui 4 pílares:
+Serviço global que controla quem pode fazer o quê na AWS na sua conta AWS,que possui 4 pílares:
 
 Exemplo: Usuário > funcionários
          Groups > Times
@@ -26,9 +26,9 @@ Exemplo: Usuário > funcionários
     - Acesso via Console(CLI) ou Navegador
     - Podem acessar via senha na console ou Access Key para SDK/CLI
     - Podem pertencer a Múltiplos Grupos
-    - **A AWS possue um limite de 5000 usuários por conta**
+    - **A AWS possui um limite de 5000 usuários por conta**
 
-- **Groups**: Coleções de usuários com permissões comum, que herdam as permissões de acesso. 
+- **Groups**: Coleções de usuários com permissões comuns, que herdam as permissões de acesso. 
     - **A AWS permite 300 grupos por conta**
     - **Cada usuário pode pertencer a 10 grupos no máximo**
     - **Um grupo NÃO pode estar dentro de outro grupo(Aninhamento)**
@@ -36,7 +36,7 @@ Exemplo: Usuário > funcionários
 
 Exemplos de Grupos: **Developers, DevOps, Admins, ReadOnly**
 
-- **Roles**: As Roles possuem credenciais **TEMPORÁRIAS** utilizadas por um serviço/usuário, a qual expira automáticamente após o uso 
+- **Roles**: As Roles possuem credenciais **TEMPORÁRIAS** utilizadas por um serviço/usuário, a qual expiram automáticamente após o uso 
 
 **Nota: :triangular_flag_on_post: Essa informação cai muito nos exame!!**
 
@@ -149,7 +149,7 @@ Esta ferramenta gerencia de forma unificada serviços na AWS, suas principais ca
 
 - Acessa a TODOS os serviços AWS via **Terminal**
 - Automatização de tarefas com scripts via (**Powershel/Bash**)
-- Saídas em vários formatod (**JSON, Text, Table, YAML e etc**)
+- Saídas em vários formatos (**JSON, Text, Table, YAML e etc**)
 - Suporte a profiles de **múltiplas contas/regiões**
 - Versões atuais: **AWS CLI v2(recomendada)**
 
@@ -329,7 +329,7 @@ Ao criar uma nova Secret, **salve as informações em um local seguro e em caso 
 Para testarmos as Secrets no AWS CLI, realize a sequência abaixo:
 
 - No terminal acesse: `aws configure --profile dev-cli`
-- Ensira as informações criadas na console
+- Insira as informações criadas na console
 
 <img src="{{ '/assets/img/img_112.png' | relative_url }}" alt="img_112" width="500" height="auto" />/>
 <br>
@@ -464,7 +464,7 @@ Python| Node.js|Java|.NET|Go|Ruby|Custom Runtime(bootstrap)
 | - Executa Código Fora do handler(global) |   | **Após ~15 minutos sem uso**|
 | - **COLD START** | **WARM START(reuso)**  | |
 
-**Cold Starr vs Warm Start**
+**Cold Star vs Warm Start**
 
 - **Cold Start:** Primeira Invocação - Inclui as fases INIT( mais lenta)
 
@@ -687,6 +687,123 @@ Ocorre apenas na primweira invocação
 |----|----|
 |**DICA 1**|**Mantenha conexões Banco de Dados(DB) FORA do Handler para utilização**|
 |**DICA 2**|**Código fora do Handler (no escopo global) executa apenas 1x o INIT**|
+
+
+## Configurações de Memória
+
+> A memória é o principal fator de  de performance do Lambda. Pois ao aumentar a memória você melhora a performance do seu processamento, economizando dinheiro durante o processo. 
+
+
+- Range mínimo de **128 MB** até **10.240 MB (10GB)**
+- Incrementos de **1MB**
+- o **CPU é proporcional à memória alocada**
+- O **Network bandwidth aumenta com a memória**
+
+| Memória | vCPU Equivalente | Uso Típico|
+|-----|-----| ----
+|128 MB| ~0.08 vCPU|Utilizadodo em funções simples|
+|512 MB| ~0.33 vCPU|Utilizado em APIs leves|
+|1.769 MB|**1 vCPU completa** |Utilizado em processamentos médios|
+|3.008+ MB|2+ vCPUs|Utilizado ML, vídeos e CPU intensivo|
+
+**Nota**: vCPU é uma unidade de processamento virtual, usada em ambientes de Cloud e em ambientes virtuais.
+
+|**NOTAS**| |
+|----|----|
+|**CPU Física**|**processador real do hardware.**|
+|**vCPU**|**fatia lógica do processador, disponibilizada para uma máquina virtual, container ou serviço de nuvem.**|
+
+
+#### Configurações de TIMEOUT
+
+> Timeout: Tempo máximo de execução da função   
+
+
+- **Mínimo**: **1 segundo** 
+- **Máximo**: **900 segundos == 15 minutos*
+- **Default**: 3 segundos
+- **Se exceder**: **Task timed out after X seconds*
+
+|**Boas Práticas**|
+|----|
+|**APIs:10 - 30 segundos**|
+|**Processamento: ajuste ao workload**|
+|**Use:** `context.get_remaining_time()`|
+|**Sempre menor que o necessário**|
+
+|**ATENÇÃO !!**|
+|----|
+|**Timeout NÃO mata execução limpa**|
+|**Conexões DB(Bando de Dados) podem ficar abertas**|
+|**Billing continua até no TIMEOUT(continua cobrando billing)**|
+|**Precisa de mais 15 minutos use o Step Function**|
+
+
+|**CAI NA PROVA**|
+|----|
+|**Se precisar de mais 15 minutos, use**  `Step Functions` ou `EC2/Fargate`|
+
+<br>
+
+#### Variáveis de Ambiente
+
+
+> São configurações dinâmicas sem alterar o código
+
+- Use para: URLs de APIs, connections strings, feature flags
+- Limite|: 4 KB total ( todas as varáveis combinadas)
+- Podem ser criptografadas com KMS
+- São acessíveis via `process.env`(Node) ou os.environ(Python)
+
+
+**Python** (Captura durante a execução)
+
+```
+import os
+db_host = os.environ ['DB_HOST']
+api_key = os.environ.get('API_KEY)
+
+```
+<br>
+
+
+**Node.js**
+
+```
+
+const dbHost = process.env.DB_HOST;
+const apiKey = process.env.API_KEY;
+
+//Fallback com default
+
+const.env = process.env.ENV || 'dev' 
+
+```
+<br>
+
+**Variáveis Reservadas (automáticas, já existente no ambiente):**
+
+`AWS_REGION`| `AWS_LABDA_FUNCTION_NAME`| `AWS_LAMBDA_FUNCTION_MEMORY_SIZE`
+
+
+
+#### Outras configurações Importantes
+
+| Configuração | Descrição | **Dica para a Prova**|
+|-----|-----| ----
+|**Ephemeral Storage (/tmp)**| 512 MB - 10.240 MB|**NÃO PERSISTE ENTRE INVOCAÇÕES(PODEM PERGUNTAR COMO PEGADINHA)**|
+|**Execution Role**| IAM Role da função |**Aplica o princípio de menor privilégio**|
+|**VPC Config**|Conecta a recursos em VPC |Adiciona **Latência no Cold Start**|
+|**Concurrency**|Limite de execuções simultâneas| **Reserved x Provisioned**|
+|**Tracing(X-Ray)**|`Active` ou `PassThrough`| **Active = Lambda envia traces**|
+
+
+
+|**NOTAS**| |
+|----|----|
+|**Trace/Tracing**|**É o registro do caminho de execução de uma operação em um sistema distribuído:** Mostra onde a requisição começou,quais serviços ela passou, quanto tempo cada etapa levou e onde aconteceram erros ou atrasos|
+||Um exemplo simples seria um usuário realizando uma compra ou uma request passando por uma API Gateway, Lambda, banco de dados ou serviço|
+||O tracing é útil,pois ajuda a encontrar gargálos, facilita na depuração de erros e mostra onde a aplicação está lenta ou falhando|
 
 
 
