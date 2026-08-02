@@ -228,7 +228,7 @@ aws sts get-caller-identity
 
 Na console, localize e acesse o **portal IAM** e localize no menu o **Iam Users**
 
-<img src="{{ '/assets/img/img_100.png' | relative_url }}" alt="img_100" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_100.png' | relative_url }}" alt="img_100" width="500" height="auto" />
 <br>
 <br>
 
@@ -236,7 +236,7 @@ Na console, localize e acesse o **portal IAM** e localize no menu o **Iam Users*
 
 Clique em **Create Users**
 
-<img src="{{ '/assets/img/img_101.png' | relative_url }}" alt="img_101" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_101.png' | relative_url }}" alt="img_101" width="500" height="auto" />
 <br>
 <br>
 
@@ -244,7 +244,7 @@ Clique em **Create Users**
 
 Defina um nome para o seu usário e a seguir prossiga com a configuração 
 
-<img src="{{ '/assets/img/img_102.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_102.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
@@ -254,7 +254,7 @@ Defina um nome para o seu usário e a seguir prossiga com a configuração
 
 -  Defina as permissões que o usuário poderá ter, neste caso optamos pela permissão de apenas de leitura **Read Only**.
 
-<img src="{{ '/assets/img/img_103.png' | relative_url }}" alt="img_103" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_103.png' | relative_url }}" alt="img_103" width="500" height="auto" />
 <br>
 <br>
 
@@ -262,7 +262,7 @@ Defina um nome para o seu usário e a seguir prossiga com a configuração
 
 Revise o cadastro antes de prosseguir com a configuração, a seguir siga com a finalização da criação de um novo usuário. 
 
-<img src="{{ '/assets/img/img_104.png' | relative_url }}" alt="img_104" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_104.png' | relative_url }}" alt="img_104" width="500" height="auto" />
 <br>
 <br>
   
@@ -271,7 +271,7 @@ Revise o cadastro antes de prosseguir com a configuração, a seguir siga com a 
 
 Na página principal do portal IAM, verifique a lista de usuários e identifique a conta criada. 
 
-<img src="{{ '/assets/img/img_105.png' | relative_url }}" alt="img_105" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_105.png' | relative_url }}" alt="img_105" width="500" height="auto" />
 <br>
 <br>  
 
@@ -279,7 +279,7 @@ Na página principal do portal IAM, verifique a lista de usuários e identifique
 
 Para realizamos teste, verifique se você possui o **AWS CLI** na sua máquina utilizando o `aws --version`. 
 
-<img src="{{ '/assets/img/img_106.png' | relative_url }}" alt="img_106" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_106.png' | relative_url }}" alt="img_106" width="500" height="auto" />
 <br>
 <br>  
 
@@ -287,7 +287,7 @@ Para realizamos teste, verifique se você possui o **AWS CLI** na sua máquina u
 
 Após confirmar se você possui o AWS CLI instalado, retorne no seu usuário e acesse o campo **Security Credentials**. 
 
-<img src="{{ '/assets/img/img_107.png' | relative_url }}" alt="img_107" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_107.png' | relative_url }}" alt="img_107" width="500" height="auto" />
 <br>
 <br>  
 
@@ -295,7 +295,7 @@ Após confirmar se você possui o AWS CLI instalado, retorne no seu usuário e a
 
 Para utilizar o AWS CLI com segurança, será necessário criar uma **Access Key**/**Secret Key**, conforme a imagem abaixo:
 
-<img src="{{ '/assets/img/img_108.png' | relative_url }}" alt="img_108" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_108.png' | relative_url }}" alt="img_108" width="500" height="auto" />
 <br>
 <br>  
 
@@ -304,7 +304,7 @@ Para utilizar o AWS CLI com segurança, será necessário criar uma **Access Key
 
 Ao cadastrar uma nova Secret Key para acessar o AWS CLI, opte por **Command Line Interface - CLI**. 
 
-<img src="{{ '/assets/img/img_109.png' | relative_url }}" alt="img_109" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_109.png' | relative_url }}" alt="img_109" width="500" height="auto" />
 <br>
 <br>  
 
@@ -312,7 +312,7 @@ Ao cadastrar uma nova Secret Key para acessar o AWS CLI, opte por **Command Line
 
 É indicado criar tags em caso de execução em **ambientes produtivos**. 
 
-<img src="{{ '/assets/img/img_110.png' | relative_url }}" alt="img_110" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_110.png' | relative_url }}" alt="img_110" width="500" height="auto" />
 <br>
 <br> 
 
@@ -321,7 +321,7 @@ Ao cadastrar uma nova Secret Key para acessar o AWS CLI, opte por **Command Line
 
 Ao criar uma nova Secret, **salve as informações em um local seguro e em caso de testes**, evite "chumbar" as informações, caso você salve a sua aplicação em um repositório. Neste caso o ideal é criar um arquivo `.gitignore` para proteger suas informações. 
 
-<img src="{{ '/assets/img/img_111.png' | relative_url }}" alt="img_111" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_111.png' | relative_url }}" alt="img_111" width="500" height="auto" />
 <br>
 <br> 
 
@@ -331,14 +331,14 @@ Para testarmos as Secrets no AWS CLI, realize a sequência abaixo:
 - No terminal acesse: `aws configure --profile dev-cli`
 - Insira as informações criadas na console
 
-<img src="{{ '/assets/img/img_112.png' | relative_url }}" alt="img_112" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_112.png' | relative_url }}" alt="img_112" width="500" height="auto" />
 <br>
 <br> 
 
 - Defina a região `us-east-1`
 - Defina o formato do ***output*, neste caso utilizamos `JSON`
 
-<img src="{{ '/assets/img/img_113.png' | relative_url }}" alt="img_113" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_113.png' | relative_url }}" alt="img_113" width="500" height="auto" />
 <br>
 <br> 
 
@@ -348,7 +348,7 @@ Para testarmos as Secrets no AWS CLI, realize a sequência abaixo:
 
 `aws mb s3://teste-criar-bucket-12345 --profile dev-cli`
 
-<img src="{{ '/assets/img/img_114.png' | relative_url }}" alt="img_114" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_114.png' | relative_url }}" alt="img_114" width="500" height="auto" />
 <br>
 <br> 
 
@@ -874,11 +874,11 @@ def lambda_handler(event, context):
 
 Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, crie uma nova Lambda.
 
-<img src="{{ '/assets/img/img_115.png' | relative_url }}" alt="img_100" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_115.png' | relative_url }}" alt="img_100" width="500" height="auto" />
 <br>
 <br>
 
-<img src="{{ '/assets/img/img_116.png' | relative_url }}" alt="img_101" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_116.png' | relative_url }}" alt="img_101" width="500" height="auto" />
 <br>
 <br>
 
@@ -886,11 +886,11 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão de Code, você insere e realiza o deploy da função lambda que será testada
 
-<img src="{{ '/assets/img/img_117.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_117.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
-<img src="{{ '/assets/img/img_118.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_118.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
@@ -899,7 +899,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão de Configuration, acesse a sessão de variável de ambiente
 
-<img src="{{ '/assets/img/img_120.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_120.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
@@ -908,7 +908,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão a seguir iremos criar um teste para verificar a performance 
 
-<img src="{{ '/assets/img/img_121.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_121.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
@@ -916,7 +916,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão a seguir iremos criar um teste para verificar a performance 
 
-<img src="{{ '/assets/img/img_122.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_122.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
@@ -924,7 +924,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Acesse o **Cloudwatch** para visualizar os **eventos de logs** para acompanhamento da performance
 
-<img src="{{ '/assets/img/img_123.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<img src="{{ '/assets/img/img_123.png' | relative_url }}" alt="img_102" width="500" height="auto" />
 <br>
 <br>
 
