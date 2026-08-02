@@ -874,11 +874,11 @@ def lambda_handler(event, context):
 
 Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, crie uma nova Lambda.
 
-<img src="{{ '/assets/img/img_115.png' | relative_url }}" alt="img_100" width="500" height="auto" />
+<img src="{{ '/assets/img/img_115.png' | relative_url }}" alt="img_115" width="500" height="auto" />
 <br>
 <br>
 
-<img src="{{ '/assets/img/img_116.png' | relative_url }}" alt="img_101" width="500" height="auto" />
+<img src="{{ '/assets/img/img_116.png' | relative_url }}" alt="img_116" width="500" height="auto" />
 <br>
 <br>
 
@@ -886,11 +886,11 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão de Code, você insere e realiza o deploy da função lambda que será testada
 
-<img src="{{ '/assets/img/img_117.png' | relative_url }}" alt="img_102" width="500" height="auto" />
+<img src="{{ '/assets/img/img_117.png' | relative_url }}" alt="img_117" width="500" height="auto" />
 <br>
 <br>
 
-<img src="{{ '/assets/img/img_118.png' | relative_url }}" alt="img_102" width="500" height="auto" />
+<img src="{{ '/assets/img/img_118.png' | relative_url }}" alt="img_118" width="500" height="auto" />
 <br>
 <br>
 
@@ -899,7 +899,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão de Configuration, acesse a sessão de variável de ambiente
 
-<img src="{{ '/assets/img/img_120.png' | relative_url }}" alt="img_102" width="500" height="auto" />
+<img src="{{ '/assets/img/img_120.png' | relative_url }}" alt="img_120" width="500" height="auto" />
 <br>
 <br>
 
@@ -908,7 +908,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão a seguir iremos criar um teste para verificar a performance 
 
-<img src="{{ '/assets/img/img_121.png' | relative_url }}" alt="img_102" width="500" height="auto" />
+<img src="{{ '/assets/img/img_121.png' | relative_url }}" alt="img_121" width="500" height="auto" />
 <br>
 <br>
 
@@ -916,7 +916,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Na sessão a seguir iremos criar um teste para verificar a performance 
 
-<img src="{{ '/assets/img/img_122.png' | relative_url }}" alt="img_102" width="500" height="auto" />
+<img src="{{ '/assets/img/img_122.png' | relative_url }}" alt="img_122" width="500" height="auto" />
 <br>
 <br>
 
@@ -924,7 +924,7 @@ Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, c
  
  Acesse o **Cloudwatch** para visualizar os **eventos de logs** para acompanhamento da performance
 
-<img src="{{ '/assets/img/img_123.png' | relative_url }}" alt="img_102" width="500" height="auto" />
+<img src="{{ '/assets/img/img_123.png' | relative_url }}" alt="img_123" width="500" height="auto" />
 <br>
 <br>
 
