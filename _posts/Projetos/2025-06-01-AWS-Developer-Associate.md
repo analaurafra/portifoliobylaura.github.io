@@ -797,13 +797,138 @@ const.env = process.env.ENV || 'dev'
 |**Concurrency**|Limite de execuções simultâneas| **Reserved x Provisioned**|
 |**Tracing(X-Ray)**|`Active` ou `PassThrough`| **Active = Lambda envia traces**|
 
-
-
 |**NOTAS**| |
 |----|----|
 |**Trace/Tracing**|**É o registro do caminho de execução de uma operação em um sistema distribuído:** Mostra onde a requisição começou,quais serviços ela passou, quanto tempo cada etapa levou e onde aconteceram erros ou atrasos|
 ||Um exemplo simples seria um usuário realizando uma compra ou uma request passando por uma API Gateway, Lambda, banco de dados ou serviço|
 ||O tracing é útil,pois ajuda a encontrar gargálos, facilita na depuração de erros e mostra onde a aplicação está lenta ou falhando|
+|**KMS**|O **AWS KEY(KMS) é usado para gerenciar, criar e controlar chaves de criptografia**|
+||Criptografa dados na AWS, protege Secrets, arquivos de banco de dados, controla quem pode usar as chaves e realiza rotações de chaves se necessário|
+
+|**DICAS DA PROVA**||
+|----|---|
+|**Memória:**| **- 128 mb - 10.240 MB** / **CPU é proporcional (1.769 MB == 1 GB)**|  
+|**Timeout:** |**Máximo: 15 minutos(900s)** / **Se exceder 15 minutos utilize Step Functions**|
+|**Variáveis de Ambiente:** |**Limite Total de 4KB**/ **Criptografia utilizando KMS(AWS KEY) / `process.env`(Node.js) e `os.environ`(Python)|
+
+
+## Ajustando as configurações de uma Lambda
+
+
+> Testando a capacidade da Lambda combinando memória, mas tempo de execução
+
+Script inserido na Lambda
+
+```
+def lambda_handler(event, context):
+    inicio = time.time()
+
+    # Ler configurações via variáveis de ambiente
+    app_env = os.environ.get("APP_ENV", "dev")
+    db_host = os.environ.get("DB_HOST", "localhost")
+    feature_flag = os.environ.get("FEATURE_NOVA", "false").lower() == "true"
+
+    # Simular carga CPU proporcional ao parâmetro do evento
+    workload = event.get("workload", "light")
+
+    if workload == "heavy":
+        result = sum(math.sqrt(i) for i in range(1_000_000))
+        print(f"Cálculo pesado concluído: {result:.2f}")
+    elif workload == "medium":
+        result = sum(math.sqrt(i) for i in range(100_000))
+        print(f"Cálculo médio concluído: {result:.2f}")
+    else:
+        result = sum(i for i in range(1_000))
+        print(f"Cálculo leve concluído: {result}")
+
+    duracao_ms = (time.time() - inicio) * 1000
+
+    print(f"Ambiente: {app_env}")
+    print(f"DB Host: {db_host}")
+    print(f"Feature Nova Ativa: {feature_flag}")
+    print(f"Duração interna: {duracao_ms:.2f}ms")
+    print(f"Memória configurada: {context.memory_limit_in_mb}MB")
+    print(f"Tempo restante: {context.get_remaining_time_in_millis()}ms")
+
+    return {
+        "statusCode": 200,
+        "body": json.dumps(
+            {
+                "env": app_env,
+                "db_host": db_host,
+                "feature_flag": feature_flag,
+                "workload": workload,
+                "duration_ms": round(duracao_ms, 2),
+                "memory_mb": context.memory_limit_in_mb,
+            }
+        ),
+    }
+
+
+```
+
+#### Exemplo de Configuração e teste de performance da Lambda
+
+
+**Passo 00**
+
+Na console, localize e acesse a sessão de **Lambda**. Como no passo anterior, crie uma nova Lambda.
+
+<img src="{{ '/assets/img/img_115.png' | relative_url }}" alt="img_100" width="500" height="auto" />/>
+<br>
+<br>
+
+<img src="{{ '/assets/img/img_116.png' | relative_url }}" alt="img_101" width="500" height="auto" />/>
+<br>
+<br>
+
+**Passo 02**
+ 
+ Na sessão de Code, você insere e realiza o deploy da função lambda que será testada
+
+<img src="{{ '/assets/img/img_117.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<br>
+<br>
+
+<img src="{{ '/assets/img/img_118.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<br>
+<br>
+
+
+**Passo 03**
+ 
+ Na sessão de Configuration, acesse a sessão de variável de ambiente
+
+<img src="{{ '/assets/img/img_120.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<br>
+<br>
+
+
+**Passo 04**
+ 
+ Na sessão a seguir iremos criar um teste para verificar a performance 
+
+<img src="{{ '/assets/img/img_121.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<br>
+<br>
+
+**Passo 05**
+ 
+ Na sessão a seguir iremos criar um teste para verificar a performance 
+
+<img src="{{ '/assets/img/img_122.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<br>
+<br>
+
+**Passo 06**
+ 
+ Acesse o **Cloudwatch** para visualizar os **eventos de logs** para acompanhamento da performance
+
+<img src="{{ '/assets/img/img_123.png' | relative_url }}" alt="img_102" width="500" height="auto" />/>
+<br>
+<br>
+
+
 
 
 
